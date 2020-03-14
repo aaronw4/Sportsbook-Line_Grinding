@@ -24,7 +24,7 @@ const NcaaBB = () => {
         const pinnacle = games.map(game => 
             game.line_periods[3]
         );
-        setPinn(pinnacle);
+        setPinn(pinnacle); 
     },[games])
         
 
@@ -32,7 +32,8 @@ const NcaaBB = () => {
         <div className='lines'>
             <div>
                 {games.map(game => (
-                    <div>
+                    <div className='matchup'>
+                        <h5>Teams</h5>
                         <p>{game.teams[0].name}</p>
                         <p>{game.teams[1].name}</p>
                     </div>

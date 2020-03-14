@@ -1,3 +1,9 @@
 .App {
-  text-align: center;
+}
+.lines {
+  display: flex;
+  justify-content: space-evenly;
+}
+.matchup {
+  margin: 20px 0 38px 0;
 }
