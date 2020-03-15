@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 
-const NcaaBB = () => {
+const NcaaBB = (props) => {
     const [pinn, setPinn] = useState([]);
     const [midPoint, setMidPoint] = useState([]);
 
-    let games = localStorage.getItem('ncaabb');
+    let games = props.games;
 
     useEffect(() => {
         const pinnacle = games.map(game => 
@@ -83,7 +83,7 @@ const NcaaBB = () => {
             </div>            
             <div>
                 {pinn.map(line => (
-                    <div className='lines'>
+                    <div className='bets'>
                         <div>
                             <h5>Moneyline</h5>
                             <p>Away: {line.period_full_game.moneyline.moneyline_away}</p>
@@ -103,12 +103,12 @@ const NcaaBB = () => {
             </div>
             <div>
                 {midPoint.map(line => (
-                    <div className='lines'> 
-                        <div>
-                        <h5>Moneyline</h5>
+                    <div className='bets'> 
+                        <div className='bet'>
+                            <h5>Moneyline</h5>
                             <p>Midpoint: {integer(line.moneylineMP)}</p>
                         </div>
-                        <div>
+                        <div className='bet'>
                             <h5>Spread</h5>
                             <p>Midpoint: {integer(line.spreadMP)}</p>
                         </div>
