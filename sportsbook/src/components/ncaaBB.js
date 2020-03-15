@@ -77,7 +77,13 @@ const NcaaBB = () => {
             let mp = (1 / recRatio) * 100;
             return mp
         }
-    },[pinn]);        
+    },[pinn]);    
+    
+    function integer(number) {
+        let num = Number(number);
+        let integer = num.toFixed(0);
+        return integer;
+    }
 
     return (
         <div className='lines'>
@@ -115,15 +121,15 @@ const NcaaBB = () => {
                     <div className='lines'> 
                         <div>
                         <h5>Moneyline</h5>
-                            <p>Midpoint: {line.moneylineMP}</p>
+                            <p>Midpoint: {integer(line.moneylineMP)}</p>
                         </div>
                         <div>
                             <h5>Spread</h5>
-                            <p>Midpoint: {line.spreadMP}</p>
+                            <p>Midpoint: {integer(line.spreadMP)}</p>
                         </div>
                         <div>
                             <h5>Total</h5>
-                            <p>Midpoint: {line.totalMP}</p>
+                            <p>Midpoint: {integer(line.totalMP)}</p>
                         </div>
                     </div>
                 ))}
