@@ -1,25 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import axiosWithAuth from './axiosWithAuth';
 
 const NcaaBB = () => {
-    // const [date, setDate] = useState(new Date().toISOString().slice(0,10));
-    const date = '2020-03-10'
-    const [games, setGames] = useState([]);
     const [pinn, setPinn] = useState([]);
     const [midPoint, setMidPoint] = useState([]);
 
-    useEffect(() => {
-        function fetchData() {
-            axiosWithAuth()
-                .get(`/sports/5/events/${date}?include=all_periods&include=scores&offset=0`)            
-                .then(res => {
-                    setGames(res.data.events);
-                    console.log(res.data.events);
-                })
-                .catch(err=> console.log(err))
-        }
-        fetchData();
-    },[date]);
+    let games = localStorage.getItem('ncaabb');
 
     useEffect(() => {
         const pinnacle = games.map(game => 
