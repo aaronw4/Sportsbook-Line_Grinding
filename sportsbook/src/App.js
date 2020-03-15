@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import axiosWithAuthNcaabb from './components/axiosWithAuth';
+import axiosWithAuth from './components/axiosWithAuth';
 import {Route, Link} from 'react-router-dom';
 import NcaaBB from './components/ncaaBB';
 import NcaaFB from './components/ncaaFB';
@@ -14,7 +14,7 @@ function App() {
    const date = '2020-03-10';
   
   function fetchNcaabb() {
-      axiosWithAuthNcaabb()
+      axiosWithAuth()
           .get(`/sports/5/events/${date}?include=all_periods&include=scores&offset=0`)            
           .then(res => {
             setGames(res.data.events)
