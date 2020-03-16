@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const axiosWithAuthNcaaBB = () => {
+const axiosWithAuth = () => {
     return axios.create({
         baseURL: 'https://therundown-therundown-v1.p.rapidapi.com',
         headers: {
