@@ -3,6 +3,9 @@ import React, {useState, useEffect} from 'react';
 const NcaaBB = (props) => {
     const [pinn, setPinn] = useState([]);
     const [midPoint, setMidPoint] = useState([]);
+    const [winRate, setWinRate] = useState();
+    const [odds, setOdds] = useState();
+    const [edge, setEdge] = useState(0);
 
     let games = props.games;
 
@@ -68,6 +71,29 @@ const NcaaBB = (props) => {
         let num = Number(number);
         let integer = num.toFixed(0);
         return integer;
+    };
+
+    const handleWinRate = e => {
+        setWinRate(e.target.value);
+    };
+
+    const handleOdds = e => {
+        setOdds(e.target.value)
+    };
+
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        let decOdds;
+
+        if (odds < 0) {
+            decOdds = (100 / (-1 * odds)) + 1;
+        } else {
+            decOdds = (odds / 100) + 1;
+        };
+
+        let edge = winRate / 100 * decOdds - 1;
+        setEdge(edge);
     }
 
     return (
@@ -107,17 +133,40 @@ const NcaaBB = (props) => {
                         <div className='bet'>
                             <h5>Moneyline</h5>
                             <p>Midpoint: {integer(line.moneylineMP)}</p>
+                            <p>Win Rate: {integer(line.moneylineMP/(line.moneylineMP + 100) * 100)}</p>
                         </div>
                         <div className='bet'>
                             <h5>Spread</h5>
                             <p>Midpoint: {integer(line.spreadMP)}</p>
+                            <p>Win Rate: {integer(line.spreadMP/(line.spreadMP + 100) * 100)}</p>
                         </div>
                         <div>
                             <h5>Total</h5>
                             <p>Midpoint: {integer(line.totalMP)}</p>
+                            <p>Win Rate: {integer(line.totalMP/(line.totalMP + 100) * 100)}</p>
                         </div>
                     </div>
                 ))}
+            </div>
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type='number'
+                        name='winRate'
+                        value={winRate}
+                        placeholder='Win Rate'
+                        onChange={handleWinRate}
+                    />
+                    <input
+                        type='number'
+                        name='odds'
+                        value={odds}
+                        placeholder='Odds'
+                        onChange={handleOdds}
+                    />
+                    <button>Calculate Edge</button>
+                </form>
+                <p>Estimated Edge: {edge}</p>
             </div>
         </div>
     )
