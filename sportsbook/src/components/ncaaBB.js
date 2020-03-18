@@ -4,8 +4,10 @@ const NcaaBB = (props) => {
     const [pinn, setPinn] = useState([]);
     const [midPoint, setMidPoint] = useState([]);
     const [winRate, setWinRate] = useState();
-    const [odds, setOdds] = useState();
-    const [edge, setEdge] = useState(0);
+    const [oddsFav, setOddsFav] = useState();
+    const [oddsDog, setOddsDog] = useState();
+    const [edgeFav, setEdgeFav] = useState(0);
+    const [edgeDog, setEdgeDog] = useState(0);
 
     let games = props.games;
 
@@ -77,23 +79,42 @@ const NcaaBB = (props) => {
         setWinRate(e.target.value);
     };
 
-    const handleOdds = e => {
-        setOdds(e.target.value)
+    const handleOddsFav = e => {
+        setOddsFav(e.target.value)
     };
 
-    const handleSubmit = e => {
+    const handleOddsDog = e => {
+        setOddsDog(e.target.value)
+    };
+
+    const handleSubmitFav = e => {
         e.preventDefault();
 
         let decOdds;
 
-        if (odds < 0) {
-            decOdds = (100 / (-1 * odds)) + 1;
+        if (oddsFav < 0) {
+            decOdds = (100 / (-1 * oddsFav)) + 1;
         } else {
-            decOdds = (odds / 100) + 1;
+            decOdds = (oddsFav / 100) + 1;
         };
 
-        let edge = winRate / 100 * decOdds - 1;
-        setEdge(edge);
+        let edge = (winRate / 100 * decOdds - 1) * 100;
+        setEdgeFav(edge);
+    };
+
+    const handleSubmitDog = e => {
+        e.preventDefault();
+
+        let decOdds;
+
+        if (oddsDog < 0) {
+            decOdds = (100 / (-1 * oddsDog)) + 1;
+        } else {
+            decOdds = (oddsDog / 100) + 1;
+        };
+
+        let edge = (-1 * (winRate / 100 -1) * decOdds - 1) * 100;
+        setEdgeDog(edge);
     }
 
     return (
@@ -122,7 +143,7 @@ const NcaaBB = (props) => {
                         </div>
                         <div>
                             <h5>Total</h5>
-                            <p>Over/Under: {line.period_full_game.total.total_over} ({line.period_full_game.total.total_over_money} / {line.period_full_game.total.total_under_money})</p>
+                            <p className='total'>Over/Under: {line.period_full_game.total.total_over} ({line.period_full_game.total.total_over_money} / {line.period_full_game.total.total_under_money})</p>
                         </div>
                     </div>
                 ))}
@@ -148,8 +169,8 @@ const NcaaBB = (props) => {
                     </div>
                 ))}
             </div>
-            <div>
-                <form onSubmit={handleSubmit}>
+            <div className='form'>
+                <form onSubmit={handleSubmitFav}>
                     <input
                         type='number'
                         name='winRate'
@@ -160,13 +181,31 @@ const NcaaBB = (props) => {
                     <input
                         type='number'
                         name='odds'
-                        value={odds}
+                        value={oddsFav}
                         placeholder='Odds'
-                        onChange={handleOdds}
+                        onChange={handleOddsFav}
                     />
-                    <button>Calculate Edge</button>
+                    <button>Favorite Edge</button>
                 </form>
-                <p>Estimated Edge: {edge}</p>
+                <p className='edge'>Estimated Edge: {edgeFav.toFixed(1)}%</p>
+                <form onSubmit={handleSubmitDog}>
+                    <input
+                        type='number'
+                        name='winRate'
+                        value={winRate}
+                        placeholder='Win Rate'
+                        onChange={handleWinRate}
+                    />
+                    <input
+                        type='number'
+                        name='odds'
+                        value={oddsDog}
+                        placeholder='Odds'
+                        onChange={handleOddsDog}
+                    />
+                    <button>Dog Edge</button>
+                </form>
+                <p className='edge'>Estimated Edge: {edgeDog.toFixed(1)}%</p>
             </div>
         </div>
     )
