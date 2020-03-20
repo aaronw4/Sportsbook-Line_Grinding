@@ -76,7 +76,7 @@ function App() {
       </Route>
 
       <Route path='/ncaafb'>
-        <NcaaFB/>
+        <NcaaFB games={games}/>
       </Route>
 
       <Route path='/nfl'>
