@@ -15,7 +15,11 @@ const NcaaBB = (props) => {
         const pinnacle = games.map(game => 
             game.line_periods[3]
         );
-        setPinn(pinnacle); 
+        const pinny = pinnacle.filter(line =>
+            line != null
+        );
+        setPinn(pinny); 
+        console.log(pinny);
     },[games])
 
     useEffect(() => {
