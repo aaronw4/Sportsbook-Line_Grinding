@@ -9,9 +9,9 @@ import MLB from './components/mlb'
 import './App.css';
 
 function App() {
-   // const [date, setDate] = useState(new Date().toISOString().slice(0,10));
+   const [date, setDate] = useState(new Date().toISOString().slice(0,10));
    const [games, setGames] = useState([]);
-   const date = '2020-03-10';
+  //  const date = '2020-03-10';
   
   function fetchNcaabb() {
       axiosWithAuth()
@@ -23,9 +23,24 @@ function App() {
           .catch(err=> console.log(err))
   };
 
+  const handleDate = e => {
+    setDate(e.target.value)
+  }
   return (
     <div className="App">
-      <Route exact path='/'>
+      {console.log(date)}
+      <Route path='/'>       
+        <h1 className='homePageTitle'>Sportsbook</h1>
+      </Route>
+      <Route exact path='/'> 
+        <form>
+          <input
+            type='string'
+            name='date'
+            value={date}
+            onChange={handleDate}
+          />
+        </form>
         <div className='homePageLinks'>
           <Link onClick={fetchNcaabb} to='/ncaabb'>
             <h2 className='homePageLink'>NCAA BB</h2>
