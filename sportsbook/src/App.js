@@ -33,12 +33,13 @@ function App() {
         <h1 className='homePageTitle'>Sportsbook</h1>
       </Route>
       <Route exact path='/'> 
-        <form>
+        <form className='homePageDate'>
           <input
             type='string'
             name='date'
             value={date}
             onChange={handleDate}
+            className='homePageInput'
           />
         </form>
         <div className='homePageLinks'>

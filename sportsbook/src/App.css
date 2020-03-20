@@ -1,10 +1,24 @@
+.homePageTitle {
+  text-align: center;
+  margin-top: 50px;
+}
+.homePageDate {
+  text-align: center;
+}
+.homePageInput {
+  font-size: 16px;
+}
 .homePageLinks {
-  margin-top: 25vh;
+  margin-top: 15vh;
   display: flex;
   justify-content: space-evenly;
 }
-.homePageLinks a:link {
+.homePageLinks a{
   text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  color: steelblue;
 }
 .lines {
   display: flex;
@@ -27,6 +41,6 @@
 }
 .form{
   position: fixed;
-  top: 50px;
+  top: 150px;
   left: 700px;
 }
