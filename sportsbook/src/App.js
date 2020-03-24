@@ -31,7 +31,17 @@ function App() {
           console.log(res.data.events);
         })
         .catch(err=> console.log(err))
-};
+  };
+
+  function fetchNFL() {
+    axiosWithAuth()
+        .get(`/sports/2/events/${date}?include=all_periods&include=scores&offset=0`)            
+        .then(res => {
+          setGames(res.data.events)
+          console.log(res.data.events);
+        })
+        .catch(err=> console.log(err))
+  };
 
   const handleDate = e => {
     setDate(e.target.value)
@@ -59,7 +69,7 @@ function App() {
           <Link onClick={fetchNcaafb} to='/ncaafb'>
             <h2>NCAA FB</h2>
           </Link>
-          <Link to='/nfl'>
+          <Link onClick={fetchNFL} to='/nfl'>
             <h2>NFL</h2>
           </Link>
           <Link path='/nba'>
@@ -80,7 +90,7 @@ function App() {
       </Route>
 
       <Route path='/nfl'>
-        <NFL/>
+        <NFL games={games}/>
       </Route>
 
       <Route path='/nba'>
