@@ -8,7 +8,8 @@ const NcaaBB = (props) => {
     const [oddsDog, setOddsDog] = useState();
     const [edgeFav, setEdgeFav] = useState(0);
     const [edgeDog, setEdgeDog] = useState(0);
-    const [betFactor, setBetFactor] = useState(0);
+    const [betFactorFav, setBetFactorFav] = useState(0);
+    const [betFactorDog, setBetFactorDog] = useState(0);
 
     let games = props.games;
 
@@ -107,7 +108,7 @@ const NcaaBB = (props) => {
         setEdgeFav(edge);
 
         let betFactor = (((decOdds - 1) * winRate/100) - (1 - winRate/100)) * 100 / (decOdds - 1);
-        setBetFactor(betFactor);
+        setBetFactorFav(betFactor);
     };
 
     const handleSubmitDog = e => {
@@ -123,6 +124,9 @@ const NcaaBB = (props) => {
 
         let edge = (-1 * (winRate / 100 -1) * decOdds - 1) * 100;
         setEdgeDog(edge);
+
+        let betFactor = (((decOdds - 1) * (1 - winRate/100)) - winRate/100) * 100 / (decOdds - 1);
+        setBetFactorDog(betFactor);
     }
 
     return (
@@ -196,7 +200,7 @@ const NcaaBB = (props) => {
                     <button>Favorite Edge</button>
                 </form>
                 <p className='edge'>Estimated Edge: {edgeFav.toFixed(1)}%</p>
-                <p className='edge'>Bet Factor: x{betFactor.toFixed(1)}</p>
+                <p className='edge'>Bet Factor: x{betFactorFav.toFixed(1)}</p>
                 <form onSubmit={handleSubmitDog}>
                     <input
                         type='number'
@@ -215,7 +219,7 @@ const NcaaBB = (props) => {
                     <button>Dog Edge</button>
                 </form>
                 <p className='edge'>Estimated Edge: {edgeDog.toFixed(1)}%</p>
-                <p className='edge'>Bet Factor: x{betFactor.toFixed(1)}</p>
+                <p className='edge'>Bet Factor: x{betFactorDog.toFixed(1)}</p>
             </div>
         </div>
     )
