@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MLB = () => {
+const MLB = (props) => {
     let games = props.games;
 
     return (

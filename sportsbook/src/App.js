@@ -5,7 +5,7 @@ import NcaaBB from './components/ncaaBB';
 import NcaaFB from './components/ncaaFB';
 import NFL from './components/nfl';
 import NBA from './components/nba';
-import MLB from './components/mlb'
+import MLB from './components/mlb';
 import './App.css';
 
 function App() {
@@ -82,10 +82,10 @@ function App() {
           <Link onClick={fetchNFL} to='/nfl'>
             <h2>NFL</h2>
           </Link>
-          <Link path='/nba'>
+          <Link to='/nba'>
             <h2>NBA</h2>
           </Link>
-          <Link onClick={fetchMLB} path='/mlb'>
+          <Link onClick={fetchMLB} to='/mlb'>
             <h2>MLB</h2>
           </Link>
         </div>
