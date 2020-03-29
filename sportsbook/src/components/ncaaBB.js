@@ -221,17 +221,17 @@ const NcaaBB = (props) => {
                             <div className='bet'>
                                 <h5>Moneyline</h5>
                                 <p>Midpoint: {integer(line.moneylineMP)}</p>
-                                <p>Win Rate: {integer(line.moneylineMP/(line.moneylineMP + 100) * 100)}</p>
+                                <p>Win Rate: {(line.moneylineMP/(line.moneylineMP + 100) * 100).toFixed(1)}</p>
                             </div>
                             <div className='bet'>
                                 <h5>Spread</h5>
                                 <p>Midpoint: {integer(line.spreadMP)}</p>
-                                <p>Win Rate: {integer(line.spreadMP/(line.spreadMP + 100) * 100)}</p>
+                                <p>Win Rate: {(line.spreadMP/(line.spreadMP + 100) * 100).toFixed(1)}</p>
                             </div>
                             <div>
                                 <h5>Total</h5>
                                 <p>Midpoint: {integer(line.totalMP)}</p>
-                                <p>Win Rate: {integer(line.totalMP/(line.totalMP + 100) * 100)}</p>
+                                <p>Win Rate: {(line.totalMP/(line.totalMP + 100) * 100).toFixed(1)}</p>
                             </div>
                         </div>
                     ))}
@@ -240,6 +240,7 @@ const NcaaBB = (props) => {
                     <form onSubmit={handleSubmitFav}>
                         <input
                             type='number'
+                            step='0.1'
                             name='winRate'
                             value={winRate}
                             placeholder='Win Rate'
@@ -260,6 +261,7 @@ const NcaaBB = (props) => {
                         <input
                             type='number'
                             name='winRate'
+                            step='0.1'
                             value={winRate}
                             placeholder='Win Rate'
                             onChange={handleWinRate}
