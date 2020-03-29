@@ -107,7 +107,7 @@ const NBA = (props) => {
         let edge = (winRate / 100 * decOdds - 1) * 100;
         setEdgeFav(edge);
 
-        let betFactor = (((decOdds - 1) * winRate/100) - (1 - winRate/100)) / (decOdds - 1);
+        let betFactor = (((decOdds - 1) * winRate/100) - (1 - winRate/100)) * 100 / (decOdds - 1);
         setBetFactorFav(betFactor);
     };
     
