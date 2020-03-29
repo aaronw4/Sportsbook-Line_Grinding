@@ -20,6 +20,10 @@
 a:hover {
   color: steelblue;
 }
+.sportTitle {
+  text-align: center;
+  margin-bottom: 50px
+}
 .lines {
   display: flex;
   margin-left: 20px;
@@ -41,6 +45,6 @@ a:hover {
 }
 .form{
   position: fixed;
-  top: 150px;
+  top: 250px;
   left: 700px;
 }
