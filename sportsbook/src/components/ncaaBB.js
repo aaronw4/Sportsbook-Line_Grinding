@@ -155,14 +155,16 @@ const NcaaBB = (props) => {
 
     return (
         <div>
-            {gamePeriod === 'fullGame' ? 
-                <h3>NCAA BB Full Game Lines</h3> : 
-                <h3>NCAA BB First Half Lines</h3>
-            } 
-            {gamePeriod === 'fullGame' ? 
-                <button onClick={handleGamePeriod}>Show First Half Lines</button> : 
-                <button onClick={handleGamePeriod}>Show Full Game Lines</button>
-            }            
+            <div className='sportTitle'>
+                {gamePeriod === 'fullGame' ? 
+                    <h3>NCAA BB Full Game Lines</h3> : 
+                    <h3>NCAA BB First Half Lines</h3>
+                } 
+                {gamePeriod === 'fullGame' ? 
+                    <button onClick={handleGamePeriod}>Show First Half Lines</button> : 
+                    <button onClick={handleGamePeriod}>Show Full Game Lines</button>
+                }  
+            </div>          
             <div className='lines'>
                 <div>
                     {games.map(game => (
