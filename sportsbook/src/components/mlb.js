@@ -109,7 +109,7 @@ const MLB = (props) => {
         let betFactor = (((decOdds - 1) * winRate/100) - (1 - winRate/100)) / (decOdds - 1);
         setBetFactorFav(betFactor);
     };
-    
+ 
     const handleSubmitDog = e => {
         e.preventDefault();
 
@@ -127,9 +127,9 @@ const MLB = (props) => {
         let betFactor = (((decOdds - 1) * (1 - winRate/100)) - winRate/100) * 100 / (decOdds - 1);
         setBetFactorDog(betFactor);
     }
-
+    
     return (
-        <div>
+        <div className='lines'>
             <div>
                 {games.map(game => (
                     <div className='matchup'>
