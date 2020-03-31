@@ -156,8 +156,8 @@ const MLB = (props) => {
         <div>
             <div className='sportTitle'>
                 {gamePeriod === 'fullGame' ? 
-                    <h3>NCAA BB Full Game Lines</h3> : 
-                    <h3>NCAA BB First Half Lines</h3>
+                    <h3>MLB Full Game Lines</h3> : 
+                    <h3>MLB First Half Lines</h3>
                 } 
                 {gamePeriod === 'fullGame' ? 
                     <button onClick={handleGamePeriod}>Show First Half Lines</button> : 
