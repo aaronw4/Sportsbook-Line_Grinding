@@ -87,7 +87,7 @@ const NBA = (props) => {
             let mp = (1 / recRatio) * 100;
             return mp
         }
-    },[pinn]);
+    },[pinn, gamePeriod]);
     
     function integer(number) {
         let num = Number(number);
