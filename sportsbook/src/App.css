@@ -1,6 +1,9 @@
 .homePageTitle {
+  width: 100%;
+  position: fixed;
+  background: black;
   text-align: center;
-  margin-top: 50px;
+  margin: 0;
 }
 .homePageDate {
   text-align: center;
@@ -22,11 +25,18 @@ a:hover {
 }
 .sportTitle {
   text-align: center;
-  margin-bottom: 50px
+  width: 100%;
+  position: fixed;
+  top: 40px;
+  background: black;
+}
+.sportTitle h3 {
+  margin: 0;
 }
 .lines {
   display: flex;
-  margin-left: 20px;
+  margin-left: 20px; 
+  padding-top: 100px
 }
 .matchup {
   margin: 20px 0 310px 0;
@@ -45,6 +55,6 @@ a:hover {
 }
 .form{
   position: fixed;
-  top: 250px;
+  top: 160px;
   left: 700px;
 }
