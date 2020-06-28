@@ -78,6 +78,7 @@ function App() {
             type='string'
             name='date'
             value={date}
+            placeholder={date}
             onChange={handleDate}
             className='homePageInput'
           />
