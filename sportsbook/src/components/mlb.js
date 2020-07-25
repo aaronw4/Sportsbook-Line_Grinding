@@ -3,7 +3,8 @@ import {MidPoint} from './midPoint';
 import MathchUp from './MatchUp';
 import MidPointLines from './MidPointLines';
 import Edge from './Edge';
-import Lines from './Lines'
+import Lines from './Lines';
+import MinValue from './MinValue'
 
 const MLB = (props) => {
     const [pinn, setPinn] = useState([]);
@@ -50,7 +51,8 @@ const MLB = (props) => {
             <div className='lines'>
                 <MathchUp games={games}/>
                 <Lines gamePeriod={gamePeriod} pinn={pinn}/>
-                <MidPointLines midPoint={midPoint}/>       
+                <MidPointLines midPoint={midPoint}/>
+                <MinValue midPoint={midPoint}/>   
                 <Edge/>
             </div>
         </div>
