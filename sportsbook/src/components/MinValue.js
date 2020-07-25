@@ -1,7 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 const MinValue = (props) => { 
     const midPoint = props.midPoint
+
+    function integer(number) {
+        let num = Number(number);
+        let integer = num.toFixed(0);
+        return integer;
+    }
 
     const favOdds = mp => {
         let wr = integer(mp / (mp + 100) * 100);
