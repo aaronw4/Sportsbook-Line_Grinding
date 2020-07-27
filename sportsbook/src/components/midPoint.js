@@ -3,6 +3,7 @@ export function MidPoint(gamePeriod, pinn) {
 
     if (gamePeriod === 'fullGame') {
         oddsArray = pinn.map(line => ({
+            id: line.period_full_game.moneyline.line_id,
             moneylineAway: line.period_full_game.moneyline.moneyline_away, 
             moneylineHome: line.period_full_game.moneyline.moneyline_home,
             spreadAway:  line.period_full_game.spread.point_spread_away_money, 
@@ -13,6 +14,7 @@ export function MidPoint(gamePeriod, pinn) {
         console.log(oddsArray);
     } else {
         oddsArray = pinn.map(line => ({
+            id: line.period_full_game.moneyline.line_id,
             moneylineAway: line.period_first_half.moneyline.moneyline_away, 
             moneylineHome: line.period_first_half.moneyline.moneyline_home,
             spreadAway:  line.period_first_half.spread.point_spread_away_money, 
@@ -24,6 +26,7 @@ export function MidPoint(gamePeriod, pinn) {
     }        
 
     let midPointArray = oddsArray.map(line => ({
+        id: line.id,
         moneylineMP: midPoint(line.moneylineAway, line.moneylineHome),
         spreadMP: midPoint(line.spreadAway, line.spreadHome),
         totalMP: midPoint(line.totalOver, line.totalUnder)
