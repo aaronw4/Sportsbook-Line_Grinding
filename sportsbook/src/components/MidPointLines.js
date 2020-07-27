@@ -12,11 +12,12 @@ const MidPointLines = (props) => {
     return(
         <div>
             {midPoint.map(line => (
-                <div className='bets'> 
+                <div className='bets' key={line.id}> 
                     <div className='bet'>
                         <h5>Moneyline</h5>
                         <p>Midpoint: {integer(line.moneylineMP)}</p>
                         <p>Win Rate: {integer(line.moneylineMP/(line.moneylineMP + 100) * 100)}</p>
+                        <p>{line.id}</p>
                     </div>
                     <div className='bet'>
                         <h5>Spread</h5>
