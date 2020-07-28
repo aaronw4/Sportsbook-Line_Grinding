@@ -27,18 +27,18 @@ const MinValue = (props) => {
             {midPoint.map(line => (
                 <div className='bets' key={line.id}>
                     <div className='bet'>
-                        <br className='minValueBreak'/>
+                        <br className='minValueBreak topHeader'/>
                         <p>Favorite: {favOdds(line.moneylineMP)}</p>
                         <p>Dog: {dogOdds(line.moneylineMP)}</p>
                         <p>{line.id}</p>
                     </div>
                     <div className='bet'>
-                        <h5>.</h5>
+                        <br className='minValueBreak topHeader'/>
                         <p>Favorite: {favOdds(line.spreadMP)}</p>
                         <p>Dog: {dogOdds(line.spreadMP)}</p>
                     </div>
                     <div>
-                        <h5>.</h5>
+                        <br className='minValueBreak topHeader'/>
                         <p>Favorite: {favOdds(line.totalMP)}</p>
                         <p>Dog: {dogOdds(line.totalMP)}</p>
                     </div>

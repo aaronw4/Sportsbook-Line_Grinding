@@ -12,7 +12,7 @@ const Lines = (props) => {
                 pinn.map(line => (
                     <div className='bets' key={line.period_full_game.moneyline.line_id}>
                         <div>
-                            <h5>Moneyline</h5>
+                            <h5 className='topHeader'>Moneyline</h5>
                             <p>Away: {line.period_full_game.moneyline.moneyline_away}</p>
                             <p>Home: {line.period_full_game.moneyline.moneyline_home}</p>
                             <p>{line.period_full_game.moneyline.line_id}</p>

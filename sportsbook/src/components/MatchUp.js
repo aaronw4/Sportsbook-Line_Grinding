@@ -10,7 +10,7 @@ const MathchUp = (props) => {
             {games.map(game => (
                 game.line_periods[3] == null ?
                 <div className='hide' key={game.event_id}>
-                    <h5>Teams</h5>
+                    <h5 className='topHeader'>Teams</h5>
                     <p>{game.teams_normalized[0].name}</p>
                     <p>{game.teams_normalized[1].name}</p>
                     <br/>
