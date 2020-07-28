@@ -2,12 +2,14 @@ import React from 'react';
 
 const MathchUp = (props) => {
     const games = props.games
+    const date = props.date
 
     return(
         <div>
+            <p>{date}</p>
             {games.map(game => (
                 game.line_periods[3] == null ?
-                <div className='matchup' key={game.event_id}>
+                <div className='hide' key={game.event_id}>
                     <h5>Teams</h5>
                     <p>{game.teams_normalized[0].name}</p>
                     <p>{game.teams_normalized[1].name}</p>

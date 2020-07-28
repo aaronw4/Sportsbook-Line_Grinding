@@ -59,3 +59,6 @@ a:hover {
   top: 160px;
   left: 700px;
 }
+.hide {
+  display: none;
+}
