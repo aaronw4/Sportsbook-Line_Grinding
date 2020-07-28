@@ -62,3 +62,9 @@ a:hover {
 .hide {
   display: none;
 }
+.date {
+  margin-bottom: 26px;
+}
+.minValueBreak {
+  margin-bottom: 26px;
+}

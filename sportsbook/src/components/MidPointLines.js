@@ -11,7 +11,7 @@ const MidPointLines = (props) => {
     
     return(
         <div>
-            <br/>
+            <br/><br/>
             {midPoint.map(line => (
                 <div className='bets' key={line.id}> 
                     <div className='bet'>

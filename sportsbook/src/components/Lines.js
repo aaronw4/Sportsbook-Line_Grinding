@@ -7,7 +7,7 @@ const Lines = (props) => {
     
     return(
         <div>
-            <br/>
+            <br/><br/>
             {gamePeriod === 'fullGame' ?
                 pinn.map(line => (
                     <div className='bets' key={line.period_full_game.moneyline.line_id}>

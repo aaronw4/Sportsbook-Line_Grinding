@@ -6,7 +6,7 @@ const MathchUp = (props) => {
 
     return(
         <div>
-            <p>{date}</p>
+            <p className='date'>{date}</p>
             {games.map(game => (
                 game.line_periods[3] == null ?
                 <div className='hide' key={game.event_id}>

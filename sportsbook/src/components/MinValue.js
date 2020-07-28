@@ -23,11 +23,11 @@ const MinValue = (props) => {
 
     return(
         <div>
-            <br/>
+            <br/><br/>
             {midPoint.map(line => (
                 <div className='bets' key={line.id}>
                     <div className='bet'>
-                        <h5>.</h5>
+                        <br className='minValueBreak'/>
                         <p>Favorite: {favOdds(line.moneylineMP)}</p>
                         <p>Dog: {dogOdds(line.moneylineMP)}</p>
                         <p>{line.id}</p>
