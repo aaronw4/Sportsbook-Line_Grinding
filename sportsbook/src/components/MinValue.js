@@ -20,9 +20,10 @@ const MinValue = (props) => {
         let line = integer(((1 / (-1 * wr / 100 + 1)) - 1) * 100);
         return line
     }
-    
+
     return(
         <div>
+            <br/>
             {midPoint.map(line => (
                 <div className='bets' key={line.id}>
                     <div className='bet'>
@@ -38,8 +39,8 @@ const MinValue = (props) => {
                     </div>
                     <div>
                         <h5>.</h5>
-                        <p>Over: {favOdds(line.totalMP)}</p>
-                        <p>Under: {dogOdds(line.totalMP)}</p>
+                        <p>Favorite: {favOdds(line.totalMP)}</p>
+                        <p>Dog: {dogOdds(line.totalMP)}</p>
                     </div>
                 </div>
             ))}
