@@ -12,6 +12,7 @@ const MLB = (props) => {
     const [gamePeriod, setGamePeriod] = useState('fullGame');
 
     let games = props.games;
+    let date = props.date;
 
     useEffect(() => {
         const pinnacle = games.map(game => 
@@ -49,7 +50,7 @@ const MLB = (props) => {
                 }  
             </div>   
             <div className='lines'>
-                <MathchUp games={games}/>
+                <MathchUp games={games} date={date}/>
                 <Lines gamePeriod={gamePeriod} pinn={pinn}/>
                 <MidPointLines midPoint={midPoint}/>
                 <MinValue midPoint={midPoint}/>   

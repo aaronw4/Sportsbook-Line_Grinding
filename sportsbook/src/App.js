@@ -103,23 +103,23 @@ function App() {
       </Route>
 
       <Route path='/ncaabb'>
-        <NcaaBB games={games}/>
+        <NcaaBB games={games} date={date}/>
       </Route>
 
       <Route path='/ncaafb'>
-        <NcaaFB games={games}/>
+        <NcaaFB games={games} date={date}/>
       </Route>
 
       <Route path='/nfl'>
-        <NFL games={games}/>
+        <NFL games={games} date={date}/>
       </Route>
 
       <Route path='/nba'>
-        <NBA games={games}/>
+        <NBA games={games} date={date}/>
       </Route>
 
       <Route path='/mlb'>
-        <MLB games={games}/>
+        <MLB games={games} date={date}/>
       </Route>
     </div>
   );
