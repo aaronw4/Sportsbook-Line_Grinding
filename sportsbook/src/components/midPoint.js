@@ -29,7 +29,10 @@ export function MidPoint(gamePeriod, pinn) {
         id: line.id,
         moneylineMP: midPoint(line.moneylineAway, line.moneylineHome),
         spreadMP: midPoint(line.spreadAway, line.spreadHome),
-        totalMP: midPoint(line.totalOver, line.totalUnder)
+        totalMP: midPoint(line.totalOver, line.totalUnder),
+        away: favorite(line.moneylineAway),
+        awaySpread: favorite(line.spreadAway),
+        favorite: overUnderFav(line.totalOver, line.totalUnder)
     }));
 
     return(midPointArray);
@@ -63,5 +66,21 @@ export function MidPoint(gamePeriod, pinn) {
         let recRatio = (1 / ratio) - 1;
         let mp = (1 / recRatio) * 100;
         return mp
+    }
+
+    function favorite(odds) {
+        if (odds < 0) {
+            return('Favorite')
+        } else {
+            return('Dog')
+        }
+    }
+
+    function overUnderFav(over, under) {
+        if (over < under) {
+            return('Over')
+        } else {
+            return('Under')
+        }
     }
 }
