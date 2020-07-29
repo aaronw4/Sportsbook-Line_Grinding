@@ -40,7 +40,7 @@ a:hover {
   padding-top: 100px
 }
 .matchup {
-  margin: 20px 0 310px 0;
+  margin: 50px 0 333px 0;
 }
 .bets {
   display: flex;
@@ -66,9 +66,11 @@ a:hover {
   margin-bottom: 26px;
 }
 .minValueBreak {
-  margin-bottom: 26px;
+  margin-bottom: 2px;
 }
-
 .topHeader {
-  margin-top: 10px;
+  margin-top: 45px;
+}
+.midHeader {
+  margin-top: 22.4px;
 }
