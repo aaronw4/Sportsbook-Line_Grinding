@@ -21,6 +21,7 @@ const MathchUp = (props) => {
                     <p>{game.teams_normalized[0].name}</p>
                     <p>{game.teams_normalized[1].name}</p>
                     <p>{game.line_periods[3].period_full_game.moneyline.line_id}</p>
+                    <p>{game.score.event_status_detail}</p>
                 </div>
             ))}
         </div>
