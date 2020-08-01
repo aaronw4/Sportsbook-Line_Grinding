@@ -19,9 +19,6 @@ const Lines = (props) => {
         let change = spreadChange - 0.5;
         setSpreadChange(change)
     }
-
-    let away
-    let home
     
     return(
         <div>
@@ -37,14 +34,12 @@ const Lines = (props) => {
                         </div>
                         <div>
                             <h5>Spread</h5>
-                            {away = line.period_full_game.spread.point_spread_away_money - (2 * spreadChange * 10)}
-                            {home = line.period_full_game.spread.point_spread_home_money + (2 * spreadChange * 10)}
-                            <span>
-                                <p>Away: {line.period_full_game.spread.point_spread_away + spreadChange} ({away})</p>
+                            <span className='spread'>
+                                <p>Away: {line.period_full_game.spread.point_spread_away + spreadChange} ({line.period_full_game.spread.point_spread_away_money - (2 * spreadChange * 10)})</p>
                                 <button onClick={() => addHalf()}>+</button>
                                 <button onClick={() => subtractHalf()}>-</button>
                             </span>
-                            <p>Home: {line.period_full_game.spread.point_spread_home - spreadChange} ({home})</p>
+                            <p>Home: {line.period_full_game.spread.point_spread_home - spreadChange} ({line.period_full_game.spread.point_spread_home_money + (2 * spreadChange * 10)})</p>
                         </div>
                         <div>
                             <h5>Total</h5>
