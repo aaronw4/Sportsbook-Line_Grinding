@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Lines = (props) => {
 
     const gamePeriod = props.gamePeriod;
     const pinn = props.pinn;
+    // const [spreadChange, setSpreadChange] = useState(0)
+
+    // function addHalf() {
+    //     props.changeSpread(-1)
+    //     let change = spreadChange + 0.5
+    //     setSpreadChange(change)
+    // }
+
+    // function subtractHalf() {
+    //     props.changeSpread(1)
+    //     let change = spreadChange - 0.5
+    //     setSpreadChange(change)
+    // }
     
     return(
         <div>
@@ -19,8 +32,12 @@ const Lines = (props) => {
                         </div>
                         <div>
                             <h5>Spread</h5>
-                            <p>Away: {line.period_full_game.spread.point_spread_away} ({line.period_full_game.spread.point_spread_away_money})</p>
-                            <p>Home: {line.period_full_game.spread.point_spread_home} ({line.period_full_game.spread.point_spread_home_money})</p>
+                            {/* <span> */}
+                                <p>Away: {line.period_full_game.spread.point_spread_away } ({line.period_full_game.spread.point_spread_away_money} - (2 * spreadChange * 10))</p>
+                                {/* <button onClick={addHalf()}>+</button>
+                                <button onClick={subtractHalf()}>-</button> */}
+                            {/* </span> */}
+                            <p>Home: {line.period_full_game.spread.point_spread_home } ({line.period_full_game.spread.point_spread_home_money} + (2 * spreadChange * 10))</p>
                         </div>
                         <div>
                             <h5>Total</h5>
@@ -31,9 +48,10 @@ const Lines = (props) => {
                 pinn.map(line => (
                     <div className='bets' key={line.period_full_game.moneyline.line_id}>
                         <div>
-                            <h5>Moneyline</h5>
+                            <h5 className='topHeader'>Moneyline</h5>
                             <p>Away: {line.period_first_half.moneyline.moneyline_away}</p>
                             <p>Home: {line.period_first_half.moneyline.moneyline_home}</p>
+                            <p>{line.period_full_game.moneyline.line_id}</p>
                         </div>
                         <div>
                             <h5>Spread</h5>

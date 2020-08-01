@@ -3,14 +3,17 @@ import {MidPoint} from './midPoint';
 import MathchUp from './MatchUp';
 import MidPointLines from './MidPointLines';
 import Edge from './Edge';
-import Lines from './Lines'
+import Lines from './Lines';
+import MinValue from './MinValue';
 
 const NBA = (props) => {
     const [pinn, setPinn] = useState([]);
     const [midPoint, setMidPoint] = useState([]);
     const [gamePeriod, setGamePeriod] = useState('fullGame');
+    // const [halfPoint, setHalfPoint] = useState(0)
 
     let games = props.games;
+    let date = props.date;
 
     useEffect(() => {
         const pinnacle = games.map(game => 
@@ -34,6 +37,11 @@ const NBA = (props) => {
             setGamePeriod('fullGame')
         }       
     }
+
+    // function changeSpread(n) {
+    //     let change = halfPoint + n
+    //     setHalfPoint(change)
+    // }
     
     return (
         <div>
@@ -48,9 +56,10 @@ const NBA = (props) => {
                 }  
             </div>  
             <div className='lines'>
-                <MathchUp games={games}/>       
-                <Lines gamePeriod={gamePeriod} pinn={pinn}/>
-                <MidPointLines midPoint={midPoint}/>       
+                <MathchUp games={games} date={date}/>       
+                <Lines gamePeriod={gamePeriod} pinn={pinn} />
+                <MidPointLines midPoint={midPoint}/>
+                <MinValue midPoint={midPoint}/>     
                 <Edge/>
             </div>
         </div>
