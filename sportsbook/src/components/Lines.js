@@ -1,22 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 const Lines = (props) => {
 
     const gamePeriod = props.gamePeriod;
     const pinn = props.pinn;
-    // const [spreadChange, setSpreadChange] = useState(0)
-
-    // function addHalf() {
-    //     props.changeSpread(-1)
-    //     let change = spreadChange + 0.5
-    //     setSpreadChange(change)
-    // }
-
-    // function subtractHalf() {
-    //     props.changeSpread(1)
-    //     let change = spreadChange - 0.5
-    //     setSpreadChange(change)
-    // }
     
     return(
         <div>
@@ -32,12 +19,9 @@ const Lines = (props) => {
                         </div>
                         <div>
                             <h5>Spread</h5>
-                            {/* <span> */}
-                                <p>Away: {line.period_full_game.spread.point_spread_away } ({line.period_full_game.spread.point_spread_away_money} - (2 * spreadChange * 10))</p>
-                                {/* <button onClick={addHalf()}>+</button>
-                                <button onClick={subtractHalf()}>-</button> */}
-                            {/* </span> */}
-                            <p>Home: {line.period_full_game.spread.point_spread_home } ({line.period_full_game.spread.point_spread_home_money} + (2 * spreadChange * 10))</p>
+                            <p>Away: {line.period_full_game.spread.point_spread_away } ({line.period_full_game.spread.point_spread_away_money})</p>
+                                
+                            <p>Home: {line.period_full_game.spread.point_spread_home } ({line.period_full_game.spread.point_spread_home_money})</p>
                         </div>
                         <div>
                             <h5>Total</h5>

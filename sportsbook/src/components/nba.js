@@ -10,7 +10,6 @@ const NBA = (props) => {
     const [pinn, setPinn] = useState([]);
     const [midPoint, setMidPoint] = useState([]);
     const [gamePeriod, setGamePeriod] = useState('fullGame');
-    // const [halfPoint, setHalfPoint] = useState(0)
 
     let games = props.games;
     let date = props.date;
@@ -37,11 +36,6 @@ const NBA = (props) => {
             setGamePeriod('fullGame')
         }       
     }
-
-    // function changeSpread(n) {
-    //     let change = halfPoint + n
-    //     setHalfPoint(change)
-    // }
     
     return (
         <div>
