@@ -10,6 +10,7 @@ const MLB = (props) => {
     const [pinn, setPinn] = useState([]);
     const [midPoint, setMidPoint] = useState([]);
     const [gamePeriod, setGamePeriod] = useState('fullGame');
+    
 
     let games = props.games;
     let date = props.date;

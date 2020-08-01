@@ -74,3 +74,6 @@ a:hover {
 .midHeader {
   margin-top: 22.4px;
 }
+.spread {
+  display: flex;
+}
