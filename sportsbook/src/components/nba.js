@@ -14,6 +14,7 @@ const NBA = (props) => {
 
     let games = props.games;
     let date = props.date;
+    console.log(halfPoint)
 
     useEffect(() => {
         const pinnacle = games.map(game => 
@@ -25,7 +26,7 @@ const NBA = (props) => {
         setPinn(pinny);
     },[games]);
 
-    useEffect((halfPoint) => {
+    useEffect(() => {
         setMidPoint(MidPoint(gamePeriod, pinn, halfPoint));
     },[pinn, gamePeriod, halfPoint]);
 
