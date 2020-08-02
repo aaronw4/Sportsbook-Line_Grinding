@@ -10,7 +10,7 @@ const MLB = (props) => {
     const [pinn, setPinn] = useState([]);
     const [midPoint, setMidPoint] = useState([]);
     const [gamePeriod, setGamePeriod] = useState('fullGame');
-    
+    const [halfPoint, setHalfPoint] = useState(0);    
 
     let games = props.games;
     let date = props.date;
@@ -26,8 +26,8 @@ const MLB = (props) => {
     },[games]);
 
     useEffect(() => {
-        setMidPoint(MidPoint(gamePeriod, pinn));
-    },[pinn, gamePeriod]);
+        setMidPoint(MidPoint(gamePeriod, pinn, halfPoint));
+    },[pinn, gamePeriod, halfPoint]);
 
     const handleGamePeriod = e => {
         e.preventDefault();
@@ -53,7 +53,12 @@ const MLB = (props) => {
             </div>   
             <div className='lines'>
                 <MathchUp games={games} date={date}/>
-                <Lines gamePeriod={gamePeriod} pinn={pinn}/>
+                <Lines 
+                    gamePeriod={gamePeriod} 
+                    pinn={pinn} 
+                    halfPoint={halfPoint}
+                    setHalfPoint={setHalfPoint}
+                />
                 <MidPointLines midPoint={midPoint}/>
                 <MinValue midPoint={midPoint}/>   
                 <Edge/>
