@@ -41,10 +41,23 @@ export function MidPoint(gamePeriod, pinn, halfPoint) {
         let dec1;
         let dec2;
         let ratio;
-        let team1 = away - (10 * Number(hp))
-        let team2 = home + (10 * Number(hp))
-        console.log(hp, Number(hp))
 
+        let team1 = away - (10 * hp)
+        if (-100 < team1 && team1 < 0) {
+            team1 = 200 + team1;
+        }
+        else if (100 > team1 && team1 > 0) {
+            team1 = -200 + team1;
+        }
+    
+        let team2 = home + (10 * hp)
+        if (-100 < team2 && team2 < 0) {
+            team2 = 200 + team2;
+        }
+        else if (100 > team2 && team2 > 0) {
+            team2 = -200 + team2;
+        }
+    
         if (team1 < 0) {
             dec1 = (100 / (-1 * team1)) + 1;
         } else {
