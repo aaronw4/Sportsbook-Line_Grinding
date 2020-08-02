@@ -76,4 +76,17 @@ a:hover {
 }
 .spread {
   display: flex;
+  height: 21px;
+  align-items: center;
+}
+.spread button{
+  display: flex;
+  height: 16px;
+  width: 16px;
+  margin: auto 5px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0;
 }
