@@ -1,9 +1,52 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Lines = (props) => {
 
     const gamePeriod = props.gamePeriod;
     const pinn = props.pinn;
+    const [spreadChange, setSpreadChange] = useState(0)
+    const halfPoint = props.halfPoint
+
+    function addHalf() {
+        let count = halfPoint + 1;
+        props.setHalfPoint(count);
+        let change = spreadChange + 0.5;
+        setSpreadChange(change)
+    }
+
+    function subtractHalf() {
+        let count = halfPoint - 1;
+        props.setHalfPoint(count);
+        let change = spreadChange - 0.5;
+        setSpreadChange(change)
+    }
+
+    function spreadAway(spread, spreadChange) {
+        let newSpread = spread  - (2 * spreadChange * 10)
+        if (-100 < newSpread && newSpread < 0) {
+            newSpread = 200 + newSpread;
+            return (newSpread)
+        }
+        else if (100 > newSpread && newSpread > 0) {
+            newSpread = -200 + newSpread;
+            return (newSpread)
+        }
+        else return (newSpread)
+    }
+
+    function spreadHome(spread, spreadChange) {
+        let newSpread = spread  + (2 * spreadChange * 10)
+        if (-100 < newSpread && newSpread < 0) {
+            newSpread = 200 + newSpread;
+            return (newSpread)
+        }
+        else if (100 > newSpread && newSpread > 0) {
+            newSpread = -200 + newSpread;
+            return (newSpread)
+        }
+        else return (newSpread)
+    }
+
     
     return(
         <div>
@@ -19,9 +62,12 @@ const Lines = (props) => {
                         </div>
                         <div>
                             <h5>Spread</h5>
-                            <p>Away: {line.period_full_game.spread.point_spread_away } ({line.period_full_game.spread.point_spread_away_money})</p>
-                                
-                            <p>Home: {line.period_full_game.spread.point_spread_home } ({line.period_full_game.spread.point_spread_home_money})</p>
+                            <div className='spread'>
+                                <p>Away: {line.period_full_game.spread.point_spread_away + spreadChange} ({spreadAway(line.period_full_game.spread.point_spread_away_money, spreadChange)})</p>
+                                <button onClick={() => addHalf()}>+</button>
+                                <button onClick={() => subtractHalf()}>-</button>
+                            </div>
+                            <p>Home: {line.period_full_game.spread.point_spread_home - spreadChange} ({spreadHome(line.period_full_game.spread.point_spread_home_money, spreadChange)})</p>
                         </div>
                         <div>
                             <h5>Total</h5>

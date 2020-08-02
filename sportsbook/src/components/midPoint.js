@@ -1,4 +1,4 @@
-export function MidPoint(gamePeriod, pinn) {    
+export function MidPoint(gamePeriod, pinn, halfPoint) {    
     let oddsArray;
 
     if (gamePeriod === 'fullGame') {
@@ -27,9 +27,9 @@ export function MidPoint(gamePeriod, pinn) {
 
     let midPointArray = oddsArray.map(line => ({
         id: line.id,
-        moneylineMP: midPoint(line.moneylineAway, line.moneylineHome),
-        spreadMP: midPoint(line.spreadAway, line.spreadHome),
-        totalMP: midPoint(line.totalOver, line.totalUnder),
+        moneylineMP: midPoint(line.moneylineAway, line.moneylineHome, 0),
+        spreadMP: midPoint(line.spreadAway, line.spreadHome, halfPoint),
+        totalMP: midPoint(line.totalOver, line.totalUnder, 0),
         away: favorite(line.moneylineAway),
         awaySpread: favorite(line.spreadAway),
         favorite: overUnderFav(line.totalOver, line.totalUnder)
@@ -37,11 +37,27 @@ export function MidPoint(gamePeriod, pinn) {
 
     return(midPointArray);
     
-    function midPoint(team1, team2) {            
+    function midPoint(away, home, hp) {            
         let dec1;
         let dec2;
         let ratio;
 
+        let team1 = away - (10 * hp)
+        if (-100 < team1 && team1 < 0) {
+            team1 = 200 + team1;
+        }
+        else if (100 > team1 && team1 > 0) {
+            team1 = -200 + team1;
+        }
+    
+        let team2 = home + (10 * hp)
+        if (-100 < team2 && team2 < 0) {
+            team2 = 200 + team2;
+        }
+        else if (100 > team2 && team2 > 0) {
+            team2 = -200 + team2;
+        }
+    
         if (team1 < 0) {
             dec1 = (100 / (-1 * team1)) + 1;
         } else {
