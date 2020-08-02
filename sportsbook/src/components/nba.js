@@ -14,7 +14,6 @@ const NBA = (props) => {
 
     let games = props.games;
     let date = props.date;
-    console.log(halfPoint)
 
     useEffect(() => {
         const pinnacle = games.map(game => 
@@ -52,7 +51,7 @@ const NBA = (props) => {
                 }  
             </div>  
             <div className='lines'>
-                <MathchUp games={games} date={date}/>       
+                <MathchUp games={games} date={date}/>  
                 <Lines 
                     gamePeriod={gamePeriod} 
                     pinn={pinn} 
