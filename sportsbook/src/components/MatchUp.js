@@ -5,17 +5,27 @@ const MathchUp = (props) => {
     const date = props.date
 
     return(
+        props.game === 'baseball' ? 
         <div>
             <p className='date'>{date}</p>
             {games.map(game => (
-                game.line_periods[3] == null ?
-                <div className='hide' key={game.event_id}>
-                    <h5 className='topHeader'>Teams</h5>
+                game.line_periods[3] == null ? null :
+                <div className='matchupPitcher' key={game.event_id}>
+                    <h5>Teams</h5>
                     <p>{game.teams_normalized[0].name}</p>
+                    <p className='pitcher'>{game.pitcher_away.name}</p>
                     <p>{game.teams_normalized[1].name}</p>
-                    <br/>
+                    <p className='pitcher'>{game.pitcher_home.name}</p>
+                    <p>{game.line_periods[3].period_full_game.moneyline.line_id}</p>
+                    <p>{game.score.event_status_detail}</p>
                 </div>
-                :
+            ))}
+        </div>
+        :
+        <div>
+            <p className='date'>{date}</p>
+            {games.map(game => (
+                game.line_periods[3] == null ? null :
                 <div className='matchup' key={game.event_id}>
                     <h5>Teams</h5>
                     <p>{game.teams_normalized[0].name}</p>

@@ -42,6 +42,13 @@ a:hover {
 .matchup {
   margin: 50px 0 296px 0;
 }
+.matchupPitcher {
+  margin: 50px 0 224px 0;
+}
+.pitcher {
+  font-style: italic;
+  margin-left: 20px;
+}
 .bets {
   display: flex;
   flex-direction: column;

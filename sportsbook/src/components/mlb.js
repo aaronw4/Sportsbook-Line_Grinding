@@ -52,7 +52,7 @@ const MLB = (props) => {
                 }  
             </div>   
             <div className='lines'>
-                <MathchUp games={games} date={date}/>
+                <MathchUp games={games} date={date} game='baseball'/>
                 <Lines 
                     gamePeriod={gamePeriod} 
                     pinn={pinn} 
