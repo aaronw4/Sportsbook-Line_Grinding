@@ -6,6 +6,7 @@ import NcaaFB from './components/ncaaFB';
 import NFL from './components/nfl';
 import NBA from './components/nba';
 import MLB from './components/mlb';
+import NHL from './components/nhl';
 import './App.css';
 
 function App() {
@@ -63,6 +64,16 @@ function App() {
         .catch(err=> console.log(err))
   };
 
+  function fetchNHL() {
+    axiosWithAuth()
+        .get(`/sports/6/events/${date}?include=all_periods&include=scores&offset=0`)            
+        .then(res => {
+          setGames(res.data.events)
+          console.log(res.data.events);
+        })
+        .catch(err=> console.log(err))
+  };
+
   const handleDate = e => {
     setDate(e.target.value)
   }
@@ -99,6 +110,9 @@ function App() {
           <Link onClick={fetchMLB} to='/mlb'>
             <h2>MLB</h2>
           </Link>
+          <Link onClick={fetchNHL} to='/nhl'>
+            <h2>NHL</h2>
+          </Link>
         </div>
       </Route>
 
@@ -120,6 +134,10 @@ function App() {
 
       <Route path='/mlb'>
         <MLB games={games} date={date}/>
+      </Route>
+
+      <Route path='/nhl'>
+        <NHL games={games} date={date}/>
       </Route>
     </div>
   );
