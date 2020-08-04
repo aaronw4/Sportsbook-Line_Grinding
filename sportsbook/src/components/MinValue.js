@@ -1,68 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const MinValue = (props) => { 
-    const midPoint = props.midPoint
+    const midPoint = props.midPoint;
+    const [n, setNumber] = useState(1)
 
     function integer(number) {
         let num = Number(number);
         let integer = num.toFixed(0);
         return integer;
-    }
+    };
 
-    const favOdds = mp => {
-        let wr = (mp / (mp + 100) * 100);
-        let line = integer(-100 / (100 / wr - 1))
-        return line
+    function changeSign() {
+        let newNumber = -1 * n;
+        setNumber(newNumber)
     }
-
-    const dogOdds = mp => {
-        let wr = (mp / (mp + 100) * 100);
-        let line = integer(((1 / (-1 * wr / 100 + 1)) - 1) * 100);
-        return line
-    }
-
+    
     return(
         <div>
             <br/><br/>
             {midPoint.map(line => 
                 <div className='bets' key={line.id}>
                     {line.away === 'Dog' ?
-                    <div className='bet'>
+                    <div>
                         <br className='minValueBreak topHeader'/>
-                        <p>Away: {dogOdds(line.moneylineMP)}</p>
-                        <p>Home: {favOdds(line.moneylineMP)}</p>
+                        <p>Away: {integer(line.moneylineMP)}</p>
+                        <p>Home: -{integer(line.moneylineMP)}</p>
                         <p>{line.id}</p>
                     </div>
                     :
-                    <div className='bet'>
+                    <div>
                         <br className='minValueBreak topHeader'/>
-                        <p>Away: {favOdds(line.moneylineMP)}</p>
-                        <p>Home: {dogOdds(line.moneylineMP)}</p>
+                        <p>Away: -{integer(line.moneylineMP)}</p>
+                        <p>Home: {integer(line.moneylineMP)}</p>
                         <p>{line.id}</p>
                     </div>}
                     {line.awaySpread === 'Dog' ?
-                    <div className='bet'>
+                    <div>
                         <br className='minValueBreak midHeader'/>
-                        <p>Away: {dogOdds(line.spreadMP)}</p>
-                        <p>Home: {favOdds(line.spreadMP)}</p>
+                        <p>Away: {n * integer(line.spreadMP)}</p>
+                        <p>Home: {-n * integer(line.spreadMP)}</p>
+                        <button onClick={() => changeSign()}>+ / -</button>
                     </div>
                     :
-                    <div className='bet'>
-                        <br className='minValueBreak midHeader'/>
-                        <p>Away: {favOdds(line.spreadMP)}</p>
-                        <p>Home: {dogOdds(line.spreadMP)}</p>
+                    <div>
+                    <   br className='minValueBreak midHeader'/>
+                        <p>Away: {-n * integer(line.spreadMP)}</p>
+                        <p>Home: {n * integer(line.spreadMP)}</p>
+                        <button onClick={() => changeSign()}>+ / -</button>
                     </div>}
                     {line.favorite === 'Over' ?
                     <div>
-                        <br className='minValueBreak midHeader'/>
-                        <p>Over: {favOdds(line.totalMP)}</p>
-                        <p>Under: {dogOdds(line.totalMP)}</p>
+                        <br className='minValueBreak bottomHeader'/>
+                        <p>Over: -{integer(line.totalMP)}</p>
+                        <p>Under: {integer(line.totalMP)}</p>
                     </div>
                     :
                     <div>
-                        <br className='minValueBreak midHeader'/>
-                        <p>Over: {dogOdds(line.totalMP)}</p>
-                        <p>Under: {favOdds(line.totalMP)}</p>
+                        <br className='minValueBreak bottomHeader'/>
+                        <p>Over: {integer(line.totalMP)}</p>
+                        <p>Under: -{integer(line.totalMP)}</p>
                     </div>}
                 </div>
             )}
