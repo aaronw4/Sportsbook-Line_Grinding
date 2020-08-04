@@ -21,7 +21,7 @@ const Lines = (props) => {
         setSpreadChange(change)
     }
 
-    function spreadAway(spread, spreadChange) {
+    function spreadAwayLine(spread, spreadChange) {
         let newSpread = spread  - (2 * spreadChange * 10)
         if (-100 < newSpread && newSpread < 0) {
             newSpread = 200 + newSpread;
@@ -34,7 +34,7 @@ const Lines = (props) => {
         else return (newSpread)
     }
 
-    function spreadHome(spread, spreadChange) {
+    function spreadHomeLine(spread, spreadChange) {
         let newSpread = spread  + (2 * spreadChange * 10)
         if (-100 < newSpread && newSpread < 0) {
             newSpread = 200 + newSpread;
@@ -47,7 +47,15 @@ const Lines = (props) => {
         else return (newSpread)
     }
 
+    function spreadAway(spread, spreadChange) {
+        let total = spread + spreadChange;
+        return total.toFixed(1)
+    }
     
+    function spreadHome(spread, spreadChange) {
+        let total = spread - spreadChange;
+        return total.toFixed(1)
+    }
     return(
         <div>
             <br/><br/>
@@ -63,11 +71,11 @@ const Lines = (props) => {
                         <div>
                             <h5>Spread</h5>
                             <div className='spread'>
-                                <p>Away: {line.period_full_game.spread.point_spread_away + spreadChange} ({spreadAway(line.period_full_game.spread.point_spread_away_money, spreadChange)})</p>
+                                <p>Away: {spreadAway(line.period_full_game.spread.point_spread_away, spreadChange)} ({spreadAwayLine(line.period_full_game.spread.point_spread_away_money, spreadChange)})</p>
                                 <button onClick={() => addHalf()}>+</button>
                                 <button onClick={() => subtractHalf()}>-</button>
                             </div>
-                            <p>Home: {line.period_full_game.spread.point_spread_home - spreadChange} ({spreadHome(line.period_full_game.spread.point_spread_home_money, spreadChange)})</p>
+                            <p>Home: {spreadHome(line.period_full_game.spread.point_spread_home, spreadChange)} ({spreadHomeLine(line.period_full_game.spread.point_spread_home_money, spreadChange)})</p>
                         </div>
                         <div>
                             <h5>Total</h5>
