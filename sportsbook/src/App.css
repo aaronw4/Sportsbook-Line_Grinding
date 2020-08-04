@@ -76,10 +76,13 @@ a:hover {
   margin-bottom: 2px;
 }
 .topHeader {
-  margin-top: 45px;
+  margin-top: 45px; 
 }
 .midHeader {
-  margin-top: 22.4px;
+  margin-top: 21.5px;
+}
+.bottomHeader {
+  margin-top: 0px;
 }
 .spread {
   display: flex;
