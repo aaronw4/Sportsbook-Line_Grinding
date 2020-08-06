@@ -58,6 +58,7 @@ const MLB = (props) => {
                     pinn={pinn} 
                     halfPoint={halfPoint}
                     setHalfPoint={setHalfPoint}
+                    game='baseball'
                 />
                 <MidPointLines midPoint={midPoint}/>
                 <MinValue midPoint={midPoint}/>   
