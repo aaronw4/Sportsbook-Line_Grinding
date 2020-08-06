@@ -82,7 +82,7 @@ const Lines = (props) => {
                             <p className='total'>Over/Under: {line.period_full_game.total.total_over} ({line.period_full_game.total.total_over_money} / {line.period_full_game.total.total_under_money})</p>
                         </div>
                     </div>
-                )) : gamePeriod === 'firstHalf' && game == 'baseball' ?
+                )) : gamePeriod === 'firstHalf' && props.game === 'baseball' ?
                 pinn.map(line => (
                     <div className='bets' key={line.period_full_game.moneyline.line_id}>
                         <div>
