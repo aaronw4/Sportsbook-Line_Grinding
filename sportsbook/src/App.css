@@ -79,10 +79,10 @@ a:hover {
   margin-top: 45px; 
 }
 .midHeader {
-  margin-top: 21.5px;
+  margin-top: 0;
 }
 .bottomHeader {
-  margin-top: 0px;
+  margin-top: 21.5px;
 }
 .spread {
   display: flex;
