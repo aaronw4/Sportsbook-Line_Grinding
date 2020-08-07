@@ -20,33 +20,33 @@ const MinValue = (props) => {
             <br/><br/>
             {midPoint.map(line => 
                 <div className='bets' key={line.id}>
-                    {line.away === 'Dog' ?
-                    <div>
-                        <br className='minValueBreak topHeader'/>
-                        <p>Away: {integer(line.moneylineMP)}</p>
-                        <p>Home: -{integer(line.moneylineMP)}</p>
-                        <p>{line.id}</p>
-                    </div>
-                    :
-                    <div>
-                        <br className='minValueBreak topHeader'/>
-                        <p>Away: -{integer(line.moneylineMP)}</p>
-                        <p>Home: {integer(line.moneylineMP)}</p>
-                        <p>{line.id}</p>
-                    </div>}
                     {line.awaySpread === 'Dog' ?
                     <div>
-                        <br className='minValueBreak midHeader'/>
+                        <br className='minValueBreak topHeader'/>
                         <p>Away: {n * integer(line.spreadMP)}</p>
                         <p>Home: {-n * integer(line.spreadMP)}</p>
                         <button onClick={() => changeSign()}>+ / -</button>
                     </div>
                     :
                     <div>
-                    <   br className='minValueBreak midHeader'/>
+                    <   br className='minValueBreak topHeader'/>
                         <p>Away: {-n * integer(line.spreadMP)}</p>
                         <p>Home: {n * integer(line.spreadMP)}</p>
                         <button onClick={() => changeSign()}>+ / -</button>
+                    </div>}
+                    {line.away === 'Dog' ?
+                    <div>
+                        <br className='minValueBreak midHeader'/>
+                        <p>Away: {integer(line.moneylineMP)}</p>
+                        <p>Home: -{integer(line.moneylineMP)}</p>
+                        <p>{line.id}</p>
+                    </div>
+                    :
+                    <div>
+                        <br className='minValueBreak midHeader'/>
+                        <p>Away: -{integer(line.moneylineMP)}</p>
+                        <p>Home: {integer(line.moneylineMP)}</p>
+                        <p>{line.id}</p>
                     </div>}
                     {line.favorite === 'Over' ?
                     <div>

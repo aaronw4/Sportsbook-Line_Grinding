@@ -63,19 +63,19 @@ const Lines = (props) => {
                 pinn.map(line => (
                     <div className='bets' key={line.period_full_game.moneyline.line_id}>
                         <div>
-                            <h5 className='topHeader'>Moneyline</h5>
-                            <p>Away: {line.period_full_game.moneyline.moneyline_away}</p>
-                            <p>Home: {line.period_full_game.moneyline.moneyline_home}</p>
-                            <p>{line.period_full_game.moneyline.line_id}</p>
-                        </div>
-                        <div>
-                            <h5>Spread</h5>
+                            <h5 className='topHeader'>Spread</h5>
                             <div className='spread'>
                                 <p>Away: {spreadAway(line.period_full_game.spread.point_spread_away, spreadChange)} ({spreadAwayLine(line.period_full_game.spread.point_spread_away_money, spreadChange)})</p>
                                 <button onClick={() => addHalf()}>+</button>
                                 <button onClick={() => subtractHalf()}>-</button>
                             </div>
                             <p>Home: {spreadHome(line.period_full_game.spread.point_spread_home, spreadChange)} ({spreadHomeLine(line.period_full_game.spread.point_spread_home_money, spreadChange)})</p>
+                        </div>
+                        <div>
+                            <h5>Moneyline</h5>
+                            <p>Away: {line.period_full_game.moneyline.moneyline_away}</p>
+                            <p>Home: {line.period_full_game.moneyline.moneyline_home}</p>
+                            <p>{line.period_full_game.moneyline.line_id}</p>
                         </div>
                         <div>
                             <h5>Total</h5>
@@ -86,19 +86,19 @@ const Lines = (props) => {
                 pinn.map(line => (
                     <div className='bets' key={line.period_full_game.moneyline.line_id}>
                         <div>
-                            <h5 className='topHeader'>Moneyline</h5>
-                            <p>Away: {line.period_first_period.moneyline.moneyline_away}</p>
-                            <p>Home: {line.period_first_period.moneyline.moneyline_home}</p>
-                            <p>{line.period_full_game.moneyline.line_id}</p>
-                        </div>
-                        <div>
-                            <h5>Spread</h5>
+                            <h5 className='topHeader'>Spread</h5>
                             <div className='spread'>
                                 <p>Away: {spreadAway(line.period_first_period.spread.point_spread_away, spreadChange)} ({spreadAwayLine(line.period_first_period.spread.point_spread_away_money, spreadChange)})</p>
                                 <button onClick={() => addHalf()}>+</button>
                                 <button onClick={() => subtractHalf()}>-</button>
                             </div>
                             <p>Home: {spreadHome(line.period_first_period.spread.point_spread_home, spreadChange)} ({spreadHomeLine(line.period_first_period.spread.point_spread_home_money, spreadChange)})</p>
+                        </div>
+                        <div>
+                            <h5>Moneyline</h5>
+                            <p>Away: {line.period_first_period.moneyline.moneyline_away}</p>
+                            <p>Home: {line.period_first_period.moneyline.moneyline_home}</p>
+                            <p>{line.period_full_game.moneyline.line_id}</p>
                         </div>
                         <div>
                             <h5>Total</h5>
@@ -109,19 +109,19 @@ const Lines = (props) => {
                 pinn.map(line => (
                     <div className='bets' key={line.period_full_game.moneyline.line_id}>
                         <div>
-                            <h5 className='topHeader'>Moneyline</h5>
-                            <p>Away: {line.period_first_half.moneyline.moneyline_away}</p>
-                            <p>Home: {line.period_first_half.moneyline.moneyline_home}</p>
-                        </div>
-                            <p>{line.period_full_game.moneyline.line_id}</p>
-                        <div>
+                            <h5 className='topHeader'>Spread</h5>
                             <div className='spread'>
-                                <h5>Spread</h5>
                                 <p>Away: {spreadAway(line.period_first_half.spread.point_spread_away, spreadChange)} ({spreadAwayLine(line.period_first_half.spread.point_spread_away_money, spreadChange)})</p>
                                 <button onClick={() => addHalf()}>+</button>
                                 <button onClick={() => subtractHalf()}>-</button>
-                                <p>Home: {spreadHome(line.period_first_half.spread.point_spread_home, spreadChange)} ({spreadHomeLine(line.period_first_half.spread.point_spread_home_money, spreadChange)})</p>
                             </div>
+                            <p>Home: {spreadHome(line.period_first_half.spread.point_spread_home, spreadChange)} ({spreadHomeLine(line.period_first_half.spread.point_spread_home_money, spreadChange)})</p>
+                        </div>
+                        <div>
+                            <h5>Moneyline</h5>
+                            <p>Away: {line.period_first_half.moneyline.moneyline_away}</p>
+                            <p>Home: {line.period_first_half.moneyline.moneyline_home}</p>
+                            <p>{line.period_full_game.moneyline.line_id}</p>
                         </div>
                         <div>
                             <h5>Total</h5>
