@@ -97,8 +97,8 @@ const Lines = (props) => {
                                 <p>Away: {spreadAway(line.period_first_period.spread.point_spread_away, spreadChange)} ({spreadAwayLine(line.period_first_period.spread.point_spread_away_money, spreadChange)})</p>
                                 <button onClick={() => addHalf()}>+</button>
                                 <button onClick={() => subtractHalf()}>-</button>
-                                <p>Home: {spreadHome(line.period_first_period.spread.point_spread_home, spreadChange)} ({spreadHomeLine(line.period_first_period.spread.point_spread_home_money, spreadChange)})</p>
                             </div>
+                            <p>Home: {spreadHome(line.period_first_period.spread.point_spread_home, spreadChange)} ({spreadHomeLine(line.period_first_period.spread.point_spread_home_money, spreadChange)})</p>
                         </div>
                         <div>
                             <h5>Total</h5>
@@ -112,8 +112,8 @@ const Lines = (props) => {
                             <h5 className='topHeader'>Moneyline</h5>
                             <p>Away: {line.period_first_half.moneyline.moneyline_away}</p>
                             <p>Home: {line.period_first_half.moneyline.moneyline_home}</p>
-                            <p>{line.period_full_game.moneyline.line_id}</p>
                         </div>
+                            <p>{line.period_full_game.moneyline.line_id}</p>
                         <div>
                             <div className='spread'>
                                 <h5>Spread</h5>
