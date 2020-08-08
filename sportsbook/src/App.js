@@ -7,6 +7,7 @@ import NFL from './components/nfl';
 import NBA from './components/nba';
 import MLB from './components/mlb';
 import NHL from './components/nhl';
+import UFC_MMA from './components/ufc_mma';
 import './App.css';
 
 function App() {
@@ -74,9 +75,20 @@ function App() {
         .catch(err=> console.log(err))
   };
 
+  function fetchUFC_MMA() {
+    axiosWithAuth()
+        .get(`/sports/7/events/${date}?include=all_periods&include=scores&offset=0`)            
+        .then(res => {
+          setGames(res.data.events)
+          console.log(res.data.events);
+        })
+        .catch(err=> console.log(err))
+  };
+
   const handleDate = e => {
     setDate(e.target.value)
-  }
+  };
+
   return (
     <div className="App">
       {console.log(date)}
@@ -113,6 +125,9 @@ function App() {
           <Link onClick={fetchNHL} to='/nhl'>
             <h2>NHL</h2>
           </Link>
+          <Link onClick={fetchUFC_MMA} to='/ufc_mma'>
+            <h2>UFC/MMA</h2>
+          </Link>
         </div>
       </Route>
 
@@ -138,6 +153,10 @@ function App() {
 
       <Route path='/nhl'>
         <NHL games={games} date={date}/>
+      </Route>
+
+      <Route path='/ufc_mma'>
+        <UFC_MMA games={games} date={date}/>
       </Route>
     </div>
   );
