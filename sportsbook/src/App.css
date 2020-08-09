@@ -43,7 +43,7 @@ a:hover {
   margin: 50px 0 296px 0;
 }
 .matchupMMA {
-  margin: 50px 0 100px 0;
+  margin: 50px 0 162px 0;
 }
 .matchupPitcher {
   margin: 50px 0 222.1px 0;
@@ -56,10 +56,11 @@ a:hover {
   display: flex;
   flex-direction: column;
   margin-left: 30px;
-  border-bottom: 1px black solid;
 }
 .betsMMA {
-  margin: 45px 0 137px 30px;
+  display: flex;
+  flex-direction: column;
+  margin: 25px 0 20px 30px;
 }
 .total {
   margin-bottom: 53px;
@@ -84,14 +85,20 @@ a:hover {
 .topHeader {
   margin-top: 45px; 
 }
+.topHeaderMMA {
+  margin-top: 0px;
+}
 .midHeader {
   margin-top: 0;
 }
-.mmaHeader {
-  margin: 0px 0 2px 0;
+.midHeaderMMA {
+  margin-top: 22px;
 }
 .bottomHeader {
   margin-top: 21.5px;
+}
+.bottomHeaderMMA {
+  margin-top: 20px;
 }
 .spread {
   display: flex;
