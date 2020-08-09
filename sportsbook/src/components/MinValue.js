@@ -24,19 +24,30 @@ const MinValue = (props) => {
                     <div className='betsMMA' key={line.id}>
                         {line.away === 'Dog' ?
                         <div>
-                            <br className='minValueBreak mmaHeader'/>
+                            <br className='minValueBreak midHeaderMMA'/>
                             <p>Away: {integer(line.moneylineMP)}</p>
                             <p>Home: -{integer(line.moneylineMP)}</p>
                             <p>{line.id}</p>
                         </div>
                         :
                         <div>
-                            <br className='minValueBreak mmaHeader'/>
+                            <br className='minValueBreak midHeaderMMA'/>
                             <p>Away: -{integer(line.moneylineMP)}</p>
                             <p>Home: {integer(line.moneylineMP)}</p>
                             <p>{line.id}</p>
-                        </div> 
-                        }
+                        </div>}
+                        {line.favorite === 'Over' ?
+                        <div>
+                            <br className='minValueBreak bottomHeaderMMA'/>
+                            <p>Over: -{integer(line.totalMP)}</p>
+                            <p>Under: {integer(line.totalMP)}</p>
+                        </div>
+                        :
+                        <div>
+                            <br className='minValueBreak bottomHeaderMMA'/>
+                            <p>Over: {integer(line.totalMP)}</p>
+                            <p>Under: -{integer(line.totalMP)}</p>
+                        </div>}
                     </div>                  
                 ) :
                 midPoint.map(line => 

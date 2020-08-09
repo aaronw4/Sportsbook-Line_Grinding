@@ -16,10 +16,17 @@ const MidPointLines = (props) => {
             {gamePeriod === 'MMA' ?
                 midPoint.map(line => (
                     <div className='betsMMA'>
-                        <h5>Moneyline</h5>
-                        <p>Midpoint: {integer(line.moneylineMP)}</p>
-                        <p>Win Rate: {integer(line.moneylineMP/(line.moneylineMP + 100) * 100)}</p>
-                        <p>{line.id}</p>
+                        <div>
+                            <h5 className='midHeaderMMA'>Moneyline</h5>
+                            <p>Midpoint: {integer(line.moneylineMP)}</p>
+                            <p>Win Rate: {integer(line.moneylineMP/(line.moneylineMP + 100) * 100)}</p>
+                            <p>{line.id}</p>
+                        </div>
+                        <div>
+                            <h5>Total</h5>
+                            <p>Midpoint: {integer(line.totalMP)}</p>
+                            <p>Win Rate: {integer(line.totalMP/(line.totalMP + 100) * 100)}</p>
+                        </div>
                     </div>
                 )) :
                 midPoint.map(line => (
