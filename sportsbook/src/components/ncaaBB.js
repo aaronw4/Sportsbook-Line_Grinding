@@ -54,7 +54,7 @@ const NcaaBB = (props) => {
                 }  
             </div>          
             <div className='lines'>
-                <MathchUp games={games}/>
+                <MathchUp games={games} date={date}/>
                 <Lines 
                     gamePeriod={gamePeriod} 
                     pinn={pinn} 
