@@ -41,6 +41,9 @@ const MLB = (props) => {
     return (
         <div>
             {console.log(midPoint)}
+            <head>
+                <title>MLB</title>
+            </head>
             <div className='sportTitle'>
                 {gamePeriod === 'fullGame' ? 
                     <h3>MLB Full Game Lines</h3> : 

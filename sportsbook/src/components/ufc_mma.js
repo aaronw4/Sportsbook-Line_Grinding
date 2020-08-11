@@ -30,6 +30,9 @@ const UFC_MMA = (props) => {
     return (
         <div>
             {console.log(midPoint)}
+            <head>
+                <title>UFC / MMA</title>
+            </head>
             <div className='sportTitle'>
                 <h3>UFC_MMA Lines</h3> 
             </div>
