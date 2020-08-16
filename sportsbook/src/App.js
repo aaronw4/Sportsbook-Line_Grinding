@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import axiosWithAuth from './components/axiosWithAuth';
+import axiosWithAuth from './components/functions/axiosWithAuth';
 import {Route, Link} from 'react-router-dom';
 import NcaaBB from './components/ncaaBB';
 import NcaaFB from './components/ncaaFB';

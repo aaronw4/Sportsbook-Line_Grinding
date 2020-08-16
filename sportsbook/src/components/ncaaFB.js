@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {MidPoint} from './midPoint';
-import MathchUp from './MatchUp';
-import MidPointLines from './MidPointLines';
+import {MidPoint} from './functions/midPoint';
+import MathchUp from './lines/MatchUp';
+import MidPointLines from './lines/MidPointLines';
 import Edge from './Edge';
-import Lines from './Lines';
-import MinValue from './MinValue';
+import Lines from './lines/Lines';
+import MinValue from './lines/MinValue';
 
 const NcaaFB = (props) => {
     const [pinn, setPinn] = useState([]);
