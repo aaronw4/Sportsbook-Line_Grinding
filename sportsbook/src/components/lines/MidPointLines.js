@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import { MidPoint } from '../functions/midPoint';
 
-const MidPointLines = (props) => {
-    const game = props.game
+const MidPointLines = () => {
     const [spreadAway, setSpreadAway] = useState(0);
     const [spreadHome, setSpreadHome] = useState(0);
     const [moneylineHome, setMoneylineHome] = useState(0);
     const [moneylineAway, setMoneylineAway] = useState(0);
     const [totalOver, setTotalOver] = useState(0);
     const [totalUnder, setTotalUnder] = useState(0);
+    const [spreadMP, setSpreadMP] = useState(0);
+    const [moneylineMP, setMoneylineMP] = useState(0);
+    const [totalMP, setTotalMP] = useState(0);
 
     const handleSpreadAway = e => {
         setSpreadAway(e.target.value)
@@ -33,6 +36,18 @@ const MidPointLines = (props) => {
         setTotalUnder(e.target.value)
     }
 
+    function handleSubmitSpread() {
+        setSpreadMP(MidPoint(spreadAway, spreadHome))
+    }
+
+    function handleSubmitMoneyline() {
+        setMoneylineMP(MidPoint(moneylineAway,moneylineHome))
+    }
+
+    function handleSubmitTotal() {
+        setTotalMP(MidPoint(totalOver, totalUnder))
+    }
+
     function integer(number) {
         let num = Number(number);
         let integer = num.toFixed(0);
@@ -41,7 +56,7 @@ const MidPointLines = (props) => {
     
     return(
         <div>
-            <form>
+            <form onSubmit={handleSubmitSpread}>
                 <input
                     type='number'
                     step='0.1'
@@ -50,44 +65,54 @@ const MidPointLines = (props) => {
                     placeholder='Spread Away'
                     onChange={handleSpreadAway}
                 />
+                <input
+                    type='number'
+                    step='0.1'
+                    name='spreadHome'
+                    value={spreadHome}
+                    placeholder='Spread Home'
+                    onChange={handleSpreadHome}
+                />
+                <button>Spread</button>
             </form>
-            {game === 'MMA' ?
-                midPoint.map(line => (
-                    <div className='betsMMA'>
-                        <div>
-                            <h5 className='midHeaderMMA'>Moneyline</h5>
-                            <p>Midpoint: {integer(line.moneylineMP)}</p>
-                            <p>Win Rate: {integer(line.moneylineMP/(line.moneylineMP + 100) * 100)}</p>
-                            <p>{line.id}</p>
-                        </div>
-                        <div>
-                            <h5>Total</h5>
-                            <p>Midpoint: {integer(line.totalMP)}</p>
-                            <p>Win Rate: {integer(line.totalMP/(line.totalMP + 100) * 100)}</p>
-                        </div>
-                    </div>
-                )) :
-                midPoint.map(line => (
-                    <div className='bets' key={line.id}> 
-                        <div>
-                            <h5 className='topHeader'>Spread</h5>
-                            <p>Midpoint: {integer(line.spreadMP)}</p>
-                            <p>Win Rate: {integer(line.spreadMP/(line.spreadMP + 100) * 100)}</p>
-                        </div>
-                        <div>
-                            <h5>Moneyline</h5>
-                            <p>Midpoint: {integer(line.moneylineMP)}</p>
-                            <p>Win Rate: {integer(line.moneylineMP/(line.moneylineMP + 100) * 100)}</p>
-                            <p>{line.id}</p>
-                        </div>
-                        <div>
-                            <h5>Total</h5>
-                            <p>Midpoint: {integer(line.totalMP)}</p>
-                            <p>Win Rate: {integer(line.totalMP/(line.totalMP + 100) * 100)}</p>
-                        </div>
-                    </div>
-                ))
-            }
+            <form onSubmit={handleSubmitMoneyline}>
+                <input
+                    type='number'
+                    step='0.1'
+                    name='moneylineAway'
+                    value={moneylineAway}
+                    placeholder='Moneyline Away'
+                    onChange={handleMoneylineAway}
+                />
+                <input
+                    type='number'
+                    step='0.1'
+                    name='moneylineHome'
+                    value={moneylineHome}
+                    placeholder='Moneyline Home'
+                    onChange={handleMoneylineHome}
+                />
+                <button>Moneyline</button>
+            </form>
+            <form onSubmit={handleSubmitTotal}>
+                <input
+                    type='number'
+                    step='0.1'
+                    name='totalOver'
+                    value={totalOver}
+                    placeholder='Total Over'
+                    onChange={handleTotalOver}
+                />
+                <input
+                    type='number'
+                    step='0.1'
+                    name='totalUnder'
+                    value={totalUnder}
+                    placeholder='Total Under'
+                    onChange={handleTotalUnder}
+                />
+                <button>Total</button>
+            </form>
         </div>     
     )
 };
