@@ -1,8 +1,37 @@
-import React from 'react';
+import React, { useState } from "react";
 
 const MidPointLines = (props) => {
-    const midPoint = props.midPoint
-    const gamePeriod = props.gamePeriod
+    const game = props.game
+    const [spreadAway, setSpreadAway] = useState(0);
+    const [spreadHome, setSpreadHome] = useState(0);
+    const [moneylineHome, setMoneylineHome] = useState(0);
+    const [moneylineAway, setMoneylineAway] = useState(0);
+    const [totalOver, setTotalOver] = useState(0);
+    const [totalUnder, setTotalUnder] = useState(0);
+
+    const handleSpreadAway = e => {
+        setSpreadAway(e.target.value)
+    }
+
+    const handleSpreadHome = e => {
+        setSpreadHome(e.target.value)
+    }
+
+    const handleMoneylineAway = e => {
+        setMoneylineAway(e.target.value)
+    }
+
+    const handleMoneylineHome = e => {
+        setMoneylineHome(e.target.value)
+    }
+
+    const handleTotalOver = e => {
+        setTotalOver(e.target.value)
+    }
+
+    const handleTotalUnder = e => {
+        setTotalUnder(e.target.value)
+    }
 
     function integer(number) {
         let num = Number(number);
@@ -12,8 +41,17 @@ const MidPointLines = (props) => {
     
     return(
         <div>
-            <br/><br/>
-            {gamePeriod === 'MMA' ?
+            <form>
+                <input
+                    type='number'
+                    step='0.1'
+                    name='spreadAway'
+                    value={spreadAway}
+                    placeholder='Spread Away'
+                    onChange={handleSpreadAway}
+                />
+            </form>
+            {game === 'MMA' ?
                 midPoint.map(line => (
                     <div className='betsMMA'>
                         <div>
