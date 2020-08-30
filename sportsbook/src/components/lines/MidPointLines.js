@@ -113,6 +113,14 @@ const MidPointLines = () => {
                 />
                 <button>Total</button>
             </form>
+            <div>
+                <p>Spread Away: {spreadMP}</p>
+                <p>Spread Home: {spreadMP}</p>
+                <p>Moneyline Away: {moneylineMP}</p>
+                <p>Moneyline Home: {moneylineMP}</p>
+                <p>Total Over: {totalMP}</p>
+                <p>Total Under: {totalMP}</p>
+            </div>
         </div>     
     )
 };
