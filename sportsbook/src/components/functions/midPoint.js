@@ -1,9 +1,9 @@
-export function MidPoint(away, home, halfpoint) {
+export function MidPoint(away, home) {
     let dec1;
     let dec2;
     let ratio;
 
-    let team1 = away - (10 * halfpoint)
+    let team1 = away
     if (-100 < team1 && team1 < 0) {
         team1 = 200 + team1;
     }
@@ -11,7 +11,7 @@ export function MidPoint(away, home, halfpoint) {
         team1 = -200 + team1;
     }
 
-    let team2 = home + (10 * halfpoint)
+    let team2 = home
     if (-100 < team2 && team2 < 0) {
         team2 = 200 + team2;
     }
