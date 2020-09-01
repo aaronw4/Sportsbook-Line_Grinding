@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { MidPoint } from '../functions/midPoint';
 
-const MidPointLines = () => {
-    const [spreadAway, setSpreadAway] = useState(0);
-    const [spreadHome, setSpreadHome] = useState(0);
-    const [moneylineHome, setMoneylineHome] = useState(0);
-    const [moneylineAway, setMoneylineAway] = useState(0);
-    const [totalOver, setTotalOver] = useState(0);
-    const [totalUnder, setTotalUnder] = useState(0);
+const MidPointLines = (props) => {
+    let total = props.total
+    const [spreadAway, setSpreadAway] = useState();
+    const [spreadHome, setSpreadHome] = useState();
+    const [moneylineHome, setMoneylineHome] = useState();
+    const [moneylineAway, setMoneylineAway] = useState();
+    const [totalOver, setTotalOver] = useState();
+    const [totalUnder, setTotalUnder] = useState();
     const [spreadMP, setSpreadMP] = useState(0);
     const [moneylineMP, setMoneylineMP] = useState(0);
     const [totalMP, setTotalMP] = useState(0);
@@ -36,16 +37,19 @@ const MidPointLines = () => {
         setTotalUnder(e.target.value)
     }
 
-    function handleSubmitSpread() {
-        setSpreadMP(MidPoint(spreadAway, spreadHome))
+    const handleSubmitSpread = e => {
+        e.preventDefault();
+        setSpreadMP(integer(MidPoint(spreadAway, spreadHome)))
     }
 
-    function handleSubmitMoneyline() {
-        setMoneylineMP(MidPoint(moneylineAway,moneylineHome))
+    const handleSubmitMoneyline = e => {
+        e.preventDefault();
+        setMoneylineMP(integer(MidPoint(moneylineAway,moneylineHome)))
     }
 
-    function handleSubmitTotal() {
-        setTotalMP(MidPoint(totalOver, totalUnder))
+    const handleSubmitTotal = e => {
+        e.preventDefault();
+        setTotalMP(integer(MidPoint(totalOver, totalUnder)))
     }
 
     function integer(number) {
@@ -55,71 +59,83 @@ const MidPointLines = () => {
     };
     
     return(
-        <div>
-            <form onSubmit={handleSubmitSpread}>
-                <input
-                    type='number'
-                    step='0.1'
-                    name='spreadAway'
-                    value={spreadAway}
-                    placeholder='Spread Away'
-                    onChange={handleSpreadAway}
-                />
-                <input
-                    type='number'
-                    step='0.1'
-                    name='spreadHome'
-                    value={spreadHome}
-                    placeholder='Spread Home'
-                    onChange={handleSpreadHome}
-                />
-                <button>Spread</button>
-            </form>
-            <form onSubmit={handleSubmitMoneyline}>
-                <input
-                    type='number'
-                    step='0.1'
-                    name='moneylineAway'
-                    value={moneylineAway}
-                    placeholder='Moneyline Away'
-                    onChange={handleMoneylineAway}
-                />
-                <input
-                    type='number'
-                    step='0.1'
-                    name='moneylineHome'
-                    value={moneylineHome}
-                    placeholder='Moneyline Home'
-                    onChange={handleMoneylineHome}
-                />
-                <button>Moneyline</button>
-            </form>
-            <form onSubmit={handleSubmitTotal}>
-                <input
-                    type='number'
-                    step='0.1'
-                    name='totalOver'
-                    value={totalOver}
-                    placeholder='Total Over'
-                    onChange={handleTotalOver}
-                />
-                <input
-                    type='number'
-                    step='0.1'
-                    name='totalUnder'
-                    value={totalUnder}
-                    placeholder='Total Under'
-                    onChange={handleTotalUnder}
-                />
-                <button>Total</button>
-            </form>
-            <div>
-                <p>Spread Away: {spreadMP}</p>
-                <p>Spread Home: {spreadMP}</p>
-                <p>Moneyline Away: {moneylineMP}</p>
-                <p>Moneyline Home: {moneylineMP}</p>
-                <p>Total Over: {totalMP}</p>
-                <p>Total Under: {totalMP}</p>
+        <div className='midpointCont'>
+            <div className='midpointForms'>
+                <form onSubmit={handleSubmitSpread}>
+                    <input
+                        type='number'
+                        step='0.1'
+                        name='spreadAway'
+                        value={spreadAway}
+                        placeholder='Spread Away'
+                        onChange={handleSpreadAway}
+                        className='midpointInput'
+                    />
+                    <input
+                        type='number'
+                        step='0.1'
+                        name='spreadHome'
+                        value={spreadHome}
+                        placeholder='Spread Home'
+                        onChange={handleSpreadHome}
+                        className='midpointInput'
+                    />
+                    <button className='midpointButton'>Spread</button>
+                </form>
+                <form onSubmit={handleSubmitMoneyline}>
+                    <input
+                        type='number'
+                        step='0.1'
+                        name='moneylineAway'
+                        value={moneylineAway}
+                        placeholder='Moneyline Away'
+                        onChange={handleMoneylineAway}
+                        className='midpointInput'
+                    />
+                    <input
+                        type='number'
+                        step='0.1'
+                        name='moneylineHome'
+                        value={moneylineHome}
+                        placeholder='Moneyline Home'
+                        onChange={handleMoneylineHome}
+                        className='midpointInput'
+                    />
+                    <button className='midpointButton'>Moneyline</button>
+                </form>
+                <form onSubmit={handleSubmitTotal}>
+                    <input
+                        type='number'
+                        step='0.1'
+                        name='totalOver'
+                        value={totalOver}
+                        placeholder='Total Over'
+                        onChange={handleTotalOver}
+                        className='midpointInput'
+                    />
+                    <input
+                        type='number'
+                        step='0.1'
+                        name='totalUnder'
+                        value={totalUnder}
+                        placeholder='Total Under'
+                        onChange={handleTotalUnder}
+                        className='midpointInput'
+                    />
+                    <button className='midpointButton'>Total</button>
+                </form>
+            </div>
+            <div className='midpointResults'>
+                <h5>Midpoints</h5>
+                <p className='midpointResult'>Spread Away: {spreadMP}</p>
+                <p className='midpointResult'>Spread Home: {spreadMP}</p>
+                <p className='midpointResult home'>Win Rate: {integer(Number(moneylineMP) / (Number(moneylineMP) + 100) * 100)}</p>
+                <p className='midpointResult'>Moneyline Away: {moneylineMP}</p>
+                <p className='midpointResult'>Moneyline Home: {moneylineMP}</p>
+                <p className='midpointResult home'>Win Rate: {integer(Number(moneylineMP) / (Number(moneylineMP) + 100) * 100)}</p>
+                <p className='midpointResult'>Over {total}: {totalMP}</p>
+                <p className='midpointResult'>Under {total}: {totalMP}</p>
+                <p className='midpointResult home'>Win Rate: {integer(Number(totalMP) / (Number(totalMP) + 100) * 100)}</p>
             </div>
         </div>     
     )
