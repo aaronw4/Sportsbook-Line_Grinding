@@ -13,7 +13,7 @@ const GameCards = (props) => {
             {games.map(game => (
                 game.line_periods[3] == null ? null :
                 <div className='bets'>
-                    <div>
+                    <div className="teams">
                         <h5>Teams</h5>
                         <p>{game.teams_normalized[0].name}</p>
                         <p className='pitcher'>{game.pitcher_away.name}</p>
@@ -22,24 +22,25 @@ const GameCards = (props) => {
                         <p>{game.line_periods[3].period_full_game.moneyline.line_id}</p>
                         <p>{game.score.event_status_detail}</p>
                     </div>
-                    <div>
-                        <p>Spread</p>
-                        <p>Moneyline</p>
-                        <p>Total</p>
+                    <div className='betTypes'>
+                        <p className='betText'>Spread</p>
+                        <p className='betText'>Moneyline</p>
+                        <p className='betText'>Total</p>
                     </div>
-                    <div>
+                    <div className='currentLines'>
                         <h5>Current</h5>
-                        <p>Away: {game.line_periods[3].period_full_game.moneyline.moneyline_away}({game.line_periods[3].period_full_game.spread.point_spread_away_money})</p>
-                        <p>Home: {game.line_periods[3].period_full_game.moneyline.moneyline_home}({game.line_periods[3].period_full_game.spread.point_spread_home_money})</p>
+                        <p>Away: {game.line_periods[3].period_full_game.spread.point_spread_away}({game.line_periods[3].period_full_game.spread.point_spread_away_money})</p>
+                        <p>Home: {game.line_periods[3].period_full_game.spread.point_spread_home}({game.line_periods[3].period_full_game.spread.point_spread_home_money})</p>
                         <br/>
                         <p>Away: {game.line_periods[3].period_full_game.moneyline.moneyline_away}</p>
                         <p>Home: {game.line_periods[3].period_full_game.moneyline.moneyline_home}</p>
                         <br/>
-                        <p className='total'>Over/Under: {game.line_periods[3].period_full_game.total.total_over} ({game.line_periods[3].period_full_game.total.total_over_money} / {game.line_periods[3].period_full_game.total.total_under_money})</p>
+                        <p>Over {game.line_periods[3].period_full_game.total.total_over}: {game.line_periods[3].period_full_game.total.total_over_money}</p>
+                        <p>Under {game.line_periods[3].period_full_game.total.total_over}: {game.line_periods[3].period_full_game.total.total_under_money}</p>
                     </div>
-                    <div>
+                    <div className='midpoints'>
                         <h5>Starting</h5>
-                        <MidPointLines game={game}/>
+                        <MidPointLines total={game.line_periods[3].period_full_game.total.total_over}/>
                     </div>
                 </div>
             ))}
