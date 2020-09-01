@@ -129,7 +129,7 @@ const MidPointLines = (props) => {
                 <h5>Midpoints</h5>
                 <p className='midpointResult'>Spread Away: {spreadMP}</p>
                 <p className='midpointResult'>Spread Home: {spreadMP}</p>
-                <p className='midpointResult home'>Win Rate: {integer(Number(moneylineMP) / (Number(moneylineMP) + 100) * 100)}</p>
+                <p className='midpointResult home'>Win Rate: {integer(Number(spreadMP) / (Number(spreadMP) + 100) * 100)}</p>
                 <p className='midpointResult'>Moneyline Away: {moneylineMP}</p>
                 <p className='midpointResult'>Moneyline Home: {moneylineMP}</p>
                 <p className='midpointResult home'>Win Rate: {integer(Number(moneylineMP) / (Number(moneylineMP) + 100) * 100)}</p>
