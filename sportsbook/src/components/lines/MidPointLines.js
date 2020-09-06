@@ -12,6 +12,9 @@ const MidPointLines = (props) => {
     const [spreadMP, setSpreadMP] = useState(0);
     const [moneylineMP, setMoneylineMP] = useState(0);
     const [totalMP, setTotalMP] = useState(0);
+    const [spreadFav, setSpreadFav] = useState();
+    const [moneylineFav, setMoneylineFav] = useState();
+    const [totalFav, setTotalFav] = useState();
 
     const handleSpreadAway = e => {
         setSpreadAway(e.target.value)
@@ -40,16 +43,19 @@ const MidPointLines = (props) => {
     const handleSubmitSpread = e => {
         e.preventDefault();
         setSpreadMP(integer(MidPoint(spreadAway, spreadHome)))
+        setSpreadFav(favorite(spreadAway, spreadHome))
     }
 
     const handleSubmitMoneyline = e => {
         e.preventDefault();
         setMoneylineMP(integer(MidPoint(moneylineAway,moneylineHome)))
+        setMoneylineFav(favorite(moneylineAway, moneylineHome))
     }
 
     const handleSubmitTotal = e => {
         e.preventDefault();
         setTotalMP(integer(MidPoint(totalOver, totalUnder)))
+        setTotalFav(overUnderFav(totalOver, totalUnder))
     }
 
     function integer(number) {
@@ -57,6 +63,22 @@ const MidPointLines = (props) => {
         let integer = num.toFixed(0);
         return integer;
     };
+
+    function favorite(away, home) {
+        if (Number(away) < Number(home)) {
+            return('Away')
+        } else {
+            return('Home')
+        }
+    }
+
+    function overUnderFav(over, under) {
+        if (Number(over) < Number(under)) {
+            return('Over')
+        } else {
+            return('Under')
+        }
+    }
     
     return(
         <div className='midpointCont'>
@@ -127,15 +149,47 @@ const MidPointLines = (props) => {
             </div>
             <div className='midpointResults'>
                 <h5>Midpoints</h5>
-                <p className='midpointResult'>Spread Away: {spreadMP}</p>
-                <p className='midpointResult'>Spread Home: {spreadMP}</p>
-                <p className='midpointResult home'>Win Rate: {integer(Number(spreadMP) / (Number(spreadMP) + 100) * 100)}</p>
-                <p className='midpointResult'>Moneyline Away: {moneylineMP}</p>
-                <p className='midpointResult'>Moneyline Home: {moneylineMP}</p>
-                <p className='midpointResult home'>Win Rate: {integer(Number(moneylineMP) / (Number(moneylineMP) + 100) * 100)}</p>
-                <p className='midpointResult'>Over {total}: {totalMP}</p>
-                <p className='midpointResult'>Under {total}: {totalMP}</p>
-                <p className='midpointResult home'>Win Rate: {integer(Number(totalMP) / (Number(totalMP) + 100) * 100)}</p>
+                {spreadFav == 'Away' ? 
+                    <div>
+                        <p className='midpointResult'>Spread Away: -{spreadMP}</p>
+                        <p className='midpointResult'>Spread Home: {spreadMP}</p>
+                        <p className='midpointResult home'>Win Rate: {integer(Number(spreadMP) / (Number(spreadMP) + 100) * 100)}</p>
+
+                    </div>
+                    :
+                    <div>
+                        <p className='midpointResult'>Spread Away: {spreadMP}</p>
+                        <p className='midpointResult'>Spread Home: -{spreadMP}</p>
+                        <p className='midpointResult home'>Win Rate: {integer(Number(spreadMP) / (Number(spreadMP) + 100) * 100)}</p>
+                    </div>
+                }
+                {moneylineFav == 'Away' ?
+                    <div>
+                        <p className='midpointResult'>Moneyline Away: -{moneylineMP}</p>
+                        <p className='midpointResult'>Moneyline Home: {moneylineMP}</p>
+                        <p className='midpointResult home'>Win Rate: {integer(Number(moneylineMP) / (Number(moneylineMP) + 100) * 100)}</p>
+                    </div>
+                    :
+                    <div>
+                        <p className='midpointResult'>Moneyline Away: {moneylineMP}</p>
+                        <p className='midpointResult'>Moneyline Home: -{moneylineMP}</p>
+                        <p className='midpointResult home'>Win Rate: {integer(Number(moneylineMP) / (Number(moneylineMP) + 100) * 100)}</p>
+                    </div>
+                }
+                {totalFav == 'Over' ?
+                    <div>
+                        <p className='midpointResult'>Over {total}: -{totalMP}</p>
+                        <p className='midpointResult'>Under {total}: {totalMP}</p>
+                        <p className='midpointResult home'>Win Rate: {integer(Number(totalMP) / (Number(totalMP) + 100) * 100)}</p>
+                    </div>
+                    :
+                    <div>
+                        <p className='midpointResult'>Over {total}: {totalMP}</p>
+                        <p className='midpointResult'>Under {total}: -{totalMP}</p>
+                        <p className='midpointResult home'>Win Rate: {integer(Number(totalMP) / (Number(totalMP) + 100) * 100)}</p>
+                    </div>
+                }
+                
             </div>
         </div>     
     )
