@@ -1,29 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import {MidPoint} from './functions/midPoint';
+import React, {useState} from 'react';
 import Edge from './Edge';
 import GameCards from './gameCards';
 
 const MLB = (props) => {
-    const [pinn, setPinn] = useState([]);
-    const [midPoint, setMidPoint] = useState([]);
     const [gamePeriod, setGamePeriod] = useState('fullGame');
     const [halfPoint, setHalfPoint] = useState(0);    
 
     let games = props.games;
-
-    useEffect(() => {
-        const pinnacle = games.map(game => 
-            game.line_periods[3]    
-        );
-        const pinny = pinnacle.filter(line => 
-            line != null    
-        );
-        setPinn(pinny)
-    },[games]);
-
-    useEffect(() => {
-        setMidPoint(MidPoint(gamePeriod, pinn, halfPoint));
-    },[pinn, gamePeriod, halfPoint]);
 
     const handleGamePeriod = e => {
         e.preventDefault();
@@ -36,7 +19,6 @@ const MLB = (props) => {
 
     return (
         <div>
-            {console.log(midPoint)}
             <head>
                 <title>MLB</title>
             </head>
