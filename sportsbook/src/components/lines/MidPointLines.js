@@ -149,7 +149,7 @@ const MidPointLines = (props) => {
             </div>
             <div className='midpointResults'>
                 <h5>Midpoints</h5>
-                {spreadFav == 'Away' ? 
+                {spreadFav === 'Away' ? 
                     <div>
                         <p className='midpointResult'>Spread Away: -{spreadMP}</p>
                         <p className='midpointResult'>Spread Home: {spreadMP}</p>
@@ -163,7 +163,7 @@ const MidPointLines = (props) => {
                         <p className='midpointResult home'>Win Rate: {integer(Number(spreadMP) / (Number(spreadMP) + 100) * 100)}</p>
                     </div>
                 }
-                {moneylineFav == 'Away' ?
+                {moneylineFav === 'Away' ?
                     <div>
                         <p className='midpointResult'>Moneyline Away: -{moneylineMP}</p>
                         <p className='midpointResult'>Moneyline Home: {moneylineMP}</p>
@@ -176,7 +176,7 @@ const MidPointLines = (props) => {
                         <p className='midpointResult home'>Win Rate: {integer(Number(moneylineMP) / (Number(moneylineMP) + 100) * 100)}</p>
                     </div>
                 }
-                {totalFav == 'Over' ?
+                {totalFav === 'Over' ?
                     <div>
                         <p className='midpointResult'>Over {total}: -{totalMP}</p>
                         <p className='midpointResult'>Under {total}: {totalMP}</p>
