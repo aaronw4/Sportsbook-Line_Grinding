@@ -36,8 +36,8 @@ a:hover {
 }
 .lines {
   display: flex;
-  margin-left: 20px; 
-  padding-top: 100px
+  margin-left: 10px; 
+  padding-top: 120px
 }
 .matchup {
   margin: 50px 0 296px 0;
@@ -54,13 +54,56 @@ a:hover {
 }
 .bets {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   margin-left: 30px;
+  margin-bottom: 20px;
+  border: 10px solid white;
+  padding: 20px;
 }
 .betsMMA {
   display: flex;
   flex-direction: column;
   margin: 25px 0 20px 30px;
+}
+.teams {
+  width: 180px;
+  border-right: 5px solid white;
+  margin-right: 20px;
+}
+.betTypes {
+  
+}
+.betText {
+  margin-top: 60px;
+  margin-bottom: 90px;
+}
+.currentLines {
+  margin-left: 50px;
+}
+.midpoints {
+  margin-left: 50px;
+}
+.midpointCont {
+  display: flex;
+}
+.midpointForms {
+
+}
+.midpointInput {
+  display: block;
+}
+.midpointResults {
+  margin-left: 50px;
+  margin-top: -60px;
+}
+.midpointButton {
+  margin-bottom: 45px;
+}
+.midpointResult {
+  line-height: 1;
+}
+.home {
+  margin-bottom: 30px;
 }
 .total {
   margin-bottom: 53px;
@@ -71,7 +114,7 @@ a:hover {
 .form{
   position: fixed;
   top: 160px;
-  left: 700px;
+  left: 1000px;
 }
 .hide {
   display: none;
