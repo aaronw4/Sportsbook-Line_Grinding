@@ -1,33 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import {MidPoint} from './functions/midPoint';
-import MathchUp from './lines/MatchUp';
-import MidPointLines from './lines/MidPointLines';
+import React, {useState} from 'react';
 import Edge from './Edge';
-import Lines from './lines/Lines';
-import MinValue from './lines/MinValue';
+import GameCards from './gameCards';
 
 const NFL = (props) => {
-    const [pinn, setPinn] = useState([]);
-    const [midPoint, setMidPoint] = useState([]);
     const [gamePeriod, setGamePeriod] = useState('fullGame');
     const [halfPoint, setHalfPoint] = useState(0);
 
     let games = props.games;
-    let date = props.date;
-
-    useEffect(() => {
-        const pinnacle = games.map(game => 
-            game.line_periods[3]    
-        );
-        const pinny = pinnacle.filter(line => 
-            line != null    
-        );
-        setPinn(pinny)
-    },[games]);
-
-    useEffect(() => {
-        setMidPoint(MidPoint(gamePeriod, pinn, halfPoint));
-    },[pinn, gamePeriod, halfPoint]);
 
     const handleGamePeriod = e => {
         e.preventDefault();
@@ -54,15 +33,13 @@ const NFL = (props) => {
                 }  
             </div>   
             <div className='lines'>
-                <MathchUp games={games} date={date}/>
-                <Lines 
+                <GameCards 
                     gamePeriod={gamePeriod} 
-                    pinn={pinn} 
+                    games={games} 
                     halfPoint={halfPoint}
                     setHalfPoint={setHalfPoint}
+                    game='nfl'
                 />
-                <MidPointLines midPoint={midPoint}/>
-                <MinValue midPoint={midPoint}/>     
                 <Edge/>
             </div>
         </div>
