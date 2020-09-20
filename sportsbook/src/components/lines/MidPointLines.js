@@ -3,6 +3,7 @@ import { MidPoint } from '../functions/midPoint';
 
 const MidPointLines = (props) => {
     let total = props.total
+    let game = props.game
     const [spreadAway, setSpreadAway] = useState();
     const [spreadHome, setSpreadHome] = useState();
     const [moneylineHome, setMoneylineHome] = useState();
@@ -83,7 +84,7 @@ const MidPointLines = (props) => {
     return(
         <div className='midpointCont'>
             <div className='midpointForms'>
-                <form onSubmit={handleSubmitSpread}>
+                <form onSubmit={handleSubmitSpread} className={game}>
                     <input
                         type='number'
                         step='0.1'
@@ -150,14 +151,14 @@ const MidPointLines = (props) => {
             <div className='midpointResults'>
                 <h5>Midpoints</h5>
                 {spreadFav === 'Away' ? 
-                    <div>
+                    <div className={game}>
                         <p className='midpointResult'>Spread Away: -{spreadMP}</p>
                         <p className='midpointResult'>Spread Home: {spreadMP}</p>
                         <p className='midpointResult home'>Win Rate: {integer(Number(spreadMP) / (Number(spreadMP) + 100) * 100)}</p>
 
                     </div>
                     :
-                    <div>
+                    <div className={game}>
                         <p className='midpointResult'>Spread Away: {spreadMP}</p>
                         <p className='midpointResult'>Spread Home: -{spreadMP}</p>
                         <p className='midpointResult home'>Win Rate: {integer(Number(spreadMP) / (Number(spreadMP) + 100) * 100)}</p>

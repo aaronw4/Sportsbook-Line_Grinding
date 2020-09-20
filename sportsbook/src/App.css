@@ -70,9 +70,6 @@ a:hover {
   border-right: 5px solid white;
   margin-right: 20px;
 }
-.betTypes {
-  
-}
 .betText {
   margin-top: 60px;
   margin-bottom: 90px;
@@ -86,8 +83,8 @@ a:hover {
 .midpointCont {
   display: flex;
 }
-.midpointForms {
-
+.MMA {
+  display: none;
 }
 .midpointInput {
   display: block;
