@@ -56,7 +56,6 @@ const GameCards = (props) => {
                         <p>{game.score.event_status_detail}</p>
                     </div>
                     <div className='betTypes'>
-                        <p className='betText'>Spread</p>
                         <p className='betText'>Moneyline</p>
                         <p className='betText'>Total</p>
                     </div>
@@ -70,7 +69,10 @@ const GameCards = (props) => {
                     </div>
                     <div className='midpoints'>
                         <h5>Starting</h5>
-                        <MidPointLines total={game.line_periods[3].period_full_game.total.total_over}/>
+                        <MidPointLines 
+                            total={game.line_periods[3].period_full_game.total.total_over}
+                            game= {props.game}
+                        />
                     </div>
                 </div>
             ))}
