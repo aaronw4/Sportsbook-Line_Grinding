@@ -4,7 +4,7 @@ import GameCards from './gameCards';
 
 const MLB = (props) => {
     const [gamePeriod, setGamePeriod] = useState('fullGame');
-    const [halfPoint, setHalfPoint] = useState(0);    
+    const [halfPoint, setHalfPoint] = useState(0);
 
     let games = props.games;
 

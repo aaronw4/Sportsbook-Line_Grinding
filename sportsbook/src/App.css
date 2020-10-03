@@ -1,3 +1,5 @@
+/* Home Page */
+
 .homePageTitle {
   width: 100%;
   position: fixed;
@@ -24,6 +26,9 @@
 a:hover {
   color: steelblue;
 }
+
+/*Sports pages  */
+
 .sportTitle {
   text-align: center;
   width: 100%;
@@ -39,15 +44,9 @@ a:hover {
   margin-left: 10px; 
   padding-top: 120px
 }
-.matchup {
-  margin: 50px 0 296px 0;
-}
-.matchupMMA {
-  margin: 50px 0 162px 0;
-}
-.matchupPitcher {
-  margin: 50px 0 221px 0;
-}
+
+/* Game Cards */
+
 .pitcher {
   font-style: italic;
   margin-left: 20px;
@@ -59,11 +58,6 @@ a:hover {
   margin-bottom: 20px;
   border: 10px solid white;
   padding: 20px;
-}
-.betsMMA {
-  display: flex;
-  flex-direction: column;
-  margin: 25px 0 20px 30px;
 }
 .teams {
   width: 180px;
@@ -80,31 +74,28 @@ a:hover {
 .midpoints {
   margin-left: 50px;
 }
+
+/* Midpoint Lines */
+
 .midpointCont {
   display: flex;
 }
-.MMA {
-  display: none;
-}
 .midpointInput {
   display: block;
+}
+.midpointButton {
+  margin-bottom: 45px;
 }
 .midpointResults {
   margin-left: 50px;
   margin-top: -60px;
 }
-.midpointButton {
-  margin-bottom: 45px;
-}
 .midpointResult {
   line-height: 1;
 }
-.home {
-  margin-bottom: 30px;
-}
-.total {
-  margin-bottom: 53px;
-}
+
+/* Edge */
+
 .edge {
   margin: 20px;
 }
@@ -112,47 +103,4 @@ a:hover {
   position: fixed;
   top: 160px;
   left: 1000px;
-}
-.hide {
-  display: none;
-}
-.date {
-  margin-bottom: 26px;
-}
-.minValueBreak {
-  margin-bottom: 2.1px;
-}
-.topHeader {
-  margin-top: 45px; 
-}
-.topHeaderMMA {
-  margin-top: 0px;
-}
-.midHeader {
-  margin-top: 0;
-}
-.midHeaderMMA {
-  margin-top: 22px;
-}
-.bottomHeader {
-  margin-top: 21.5px;
-}
-.bottomHeaderMMA {
-  margin-top: 20px;
-}
-.spread {
-  display: flex;
-  height: 21px;
-  align-items: center;
-}
-.spread button{
-  display: flex;
-  height: 16px;
-  width: 16px;
-  margin: auto 5px;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  font-size: 16px;
-  padding: 0;
 }
