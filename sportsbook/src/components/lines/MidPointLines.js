@@ -61,7 +61,7 @@ const MidPointLines = (props) => {
 
     function integer(number) {
         let num = Number(number);
-        let integer = num.toFixed(0);
+        let integer = num.toFixed(1);
         return integer;
     };
 
