@@ -80,6 +80,9 @@ a:hover {
 .midpointCont {
   display: flex;
 }
+.MMA {
+  display: none;
+}
 .midpointInput {
   display: block;
 }
