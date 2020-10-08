@@ -1,13 +1,23 @@
 import React from 'react'
 import MidPointLines from './lines/MidPointLines'
+import GameCards1stHalf from './gameCards1stHalf'
 
 const GameCards = (props) => {
     const gamePeriod = props.gamePeriod
     const games = props.games
     const halfPoint = props.halfPoint
+    const setHalfPoint = props.setHalfPoint
     const game = props.game
 
     return (
+        gamePeriod === 'firstHalf' ?
+        <GameCards1stHalf
+            games={games}
+            halfPoint={halfPoint}
+            setHalfPoint={setHalfPoint}
+            game='ncaaFB'
+        />
+        :
         game === 'baseball' ?
         <div>
             {games.map(game => (
