@@ -15,7 +15,7 @@ const GameCards = (props) => {
             games={games}
             halfPoint={halfPoint}
             setHalfPoint={setHalfPoint}
-            game='ncaaFB'
+            game={props.game}
         />
         :
         game === 'baseball' ?
@@ -81,7 +81,8 @@ const GameCards = (props) => {
                         <h5>Starting</h5>
                         <MidPointLines 
                             total={game.line_periods[3].period_full_game.total.total_over}
-                            game= {props.game}
+                            condition2= {props.game}
+                            condition1= ''
                         />
                     </div>
                 </div>
