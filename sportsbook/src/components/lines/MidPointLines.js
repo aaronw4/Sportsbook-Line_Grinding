@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, {useState } from "react";
 import { MidPoint } from '../functions/midPoint';
 
 const MidPointLines = (props) => {
     let total = props.total
-    let game = props.game
+    let condition1 = props.condition1
+    let condition2 = props.condition2
+    
     const [spreadAway, setSpreadAway] = useState();
     const [spreadHome, setSpreadHome] = useState();
     const [moneylineHome, setMoneylineHome] = useState();
@@ -84,7 +86,7 @@ const MidPointLines = (props) => {
     return(
         <div className='midpointCont'>
             <div className='midpointForms'>
-                <form onSubmit={handleSubmitSpread} className={game}>
+                <form onSubmit={handleSubmitSpread} className={condition2}>
                     <input
                         type='number'
                         step='0.1'
@@ -105,7 +107,7 @@ const MidPointLines = (props) => {
                     />
                     <button className='midpointButton'>Spread</button>
                 </form>
-                <form onSubmit={handleSubmitMoneyline}>
+                <form onSubmit={handleSubmitMoneyline} className={condition1}>
                     <input
                         type='number'
                         step='0.1'
@@ -151,27 +153,27 @@ const MidPointLines = (props) => {
             <div className='midpointResults'>
                 <h5>Midpoints</h5>
                 {spreadFav === 'Away' ? 
-                    <div className={game}>
+                    <div className={condition2}>
                         <p className='midpointResult'>Spread Away: -{spreadMP}</p>
                         <p className='midpointResult'>Spread Home: {spreadMP}</p>
                         <p className='midpointResult home'>Win Rate: {integer(Number(spreadMP) / (Number(spreadMP) + 100) * 100)}</p>
 
                     </div>
                     :
-                    <div className={game}>
+                    <div className={condition2}>
                         <p className='midpointResult'>Spread Away: {spreadMP}</p>
                         <p className='midpointResult'>Spread Home: -{spreadMP}</p>
                         <p className='midpointResult home'>Win Rate: {integer(Number(spreadMP) / (Number(spreadMP) + 100) * 100)}</p>
                     </div>
                 }
                 {moneylineFav === 'Away' ?
-                    <div>
+                    <div className={condition1}>
                         <p className='midpointResult'>Moneyline Away: -{moneylineMP}</p>
                         <p className='midpointResult'>Moneyline Home: {moneylineMP}</p>
                         <p className='midpointResult home'>Win Rate: {integer(Number(moneylineMP) / (Number(moneylineMP) + 100) * 100)}</p>
                     </div>
                     :
-                    <div>
+                    <div className={condition1}>
                         <p className='midpointResult'>Moneyline Away: {moneylineMP}</p>
                         <p className='midpointResult'>Moneyline Home: -{moneylineMP}</p>
                         <p className='midpointResult home'>Win Rate: {integer(Number(moneylineMP) / (Number(moneylineMP) + 100) * 100)}</p>
