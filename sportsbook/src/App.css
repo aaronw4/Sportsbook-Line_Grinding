@@ -80,7 +80,7 @@ a:hover {
 .midpointCont {
   display: flex;
 }
-.MMA {
+.MMA, .baseball {
   display: none;
 }
 .midpointInput {
