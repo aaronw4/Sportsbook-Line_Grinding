@@ -7,7 +7,7 @@ import NFL from './components/nfl';
 import NBA from './components/nba';
 import MLB from './components/mlb';
 import NHL from './components/nhl';
-import UFC_MMA from './components/ufc_mma';
+// import UFC_MMA from './components/ufc_mma';
 import './App.css';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
   
   function fetchNcaabb() {
       axiosWithAuth()
-          .get(`/sports/5/events/${date}?include=all_periods&include=scores&offset=0`)            
+          .get(`/games?league=NCAAB&date=${date}`)  
           .then(res => {
             setGames(res.data.events)
             console.log(res.data.events);
@@ -27,7 +27,7 @@ function App() {
 
   function fetchNcaafb() {
     axiosWithAuth()
-        .get(`/sports/1/events/${date}?include=all_periods&include=scores&offset=0`)            
+        .get(`/games?league=NCAAF&date=${date}`)         
         .then(res => {
           setGames(res.data.events)
           console.log(res.data.events);
@@ -37,7 +37,7 @@ function App() {
 
   function fetchNFL() {
     axiosWithAuth()
-        .get(`/sports/2/events/${date}?include=all_periods&include=scores&offset=0`)            
+        .get(`/games?league=NFL&date=${date}`)            
         .then(res => {
           setGames(res.data.events)
           console.log(res.data.events);
@@ -47,7 +47,7 @@ function App() {
 
   function fetchMLB() {
     axiosWithAuth()
-        .get(`/sports/3/events/${date}?include=all_periods&include=scores&offset=0`)            
+        .get(`/games?league=MLB&date=${date}`)            
         .then(res => {
           setGames(res.data.events)
           console.log(res.data.events);
@@ -57,7 +57,7 @@ function App() {
 
   function fetchNBA() {
     axiosWithAuth()
-        .get(`/sports/4/events/${date}?include=all_periods&include=scores&offset=0`)            
+        .get(`/games?league=NBA&date=${date}`)            
         .then(res => {
           setGames(res.data.events)
           console.log(res.data.events);
@@ -67,23 +67,23 @@ function App() {
 
   function fetchNHL() {
     axiosWithAuth()
-        .get(`/sports/6/events/${date}?include=all_periods&include=scores&offset=0`)            
+        .get(`/games?league=NHL&date=${date}`)            
         .then(res => {
           setGames(res.data.events)
           console.log(res.data.events);
         })
         .catch(err=> console.log(err))
   };
-
-  function fetchUFC_MMA() {
-    axiosWithAuth()
-        .get(`/sports/7/events/${date}?include=all_periods&include=scores&offset=0`)            
-        .then(res => {
-          setGames(res.data.events)
-          console.log(res.data.events);
-        })
-        .catch(err=> console.log(err))
-  };
+  // New site does not suppot MMA
+  // function fetchUFC_MMA() {
+  //   axiosWithAuth()
+  //       .get(`/sports/7/events/${date}?include=all_periods&include=scores&offset=0`)            
+  //       .then(res => {
+  //         setGames(res.data.events)
+  //         console.log(res.data.events);
+  //       })
+  //       .catch(err=> console.log(err))
+  // };
 
   const handleDate = e => {
     setDate(e.target.value)
@@ -125,9 +125,9 @@ function App() {
           <Link onClick={fetchNHL} to='/nhl'>
             <h2>NHL</h2>
           </Link>
-          <Link onClick={fetchUFC_MMA} to='/ufc_mma'>
+          {/* <Link onClick={fetchUFC_MMA} to='/ufc_mma'>
             <h2>UFC/MMA</h2>
-          </Link>
+          </Link> */}
         </div>
       </Route>
 
@@ -155,9 +155,9 @@ function App() {
         <NHL games={games} date={date}/>
       </Route>
 
-      <Route path='/ufc_mma'>
+      {/* <Route path='/ufc_mma'>
         <UFC_MMA games={games} date={date}/>
-      </Route>
+      </Route> */}
     </div>
   );
 }
