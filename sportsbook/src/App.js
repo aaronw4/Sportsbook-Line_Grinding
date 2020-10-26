@@ -19,8 +19,8 @@ function App() {
       axiosWithAuth()
           .get(`/games?league=NCAAB&date=${date}`)  
           .then(res => {
-            setGames(res.data.events)
-            console.log(res.data.events);
+            setGames(res.data.results)
+            console.log(res.data.results);
           })
           .catch(err=> console.log(err))
   };
@@ -29,8 +29,8 @@ function App() {
     axiosWithAuth()
         .get(`/games?league=NCAAF&date=${date}`)         
         .then(res => {
-          setGames(res.data.events)
-          console.log(res.data.events);
+          setGames(res.data.results)
+          console.log(res.data.results);
         })
         .catch(err=> console.log(err))
   };
@@ -39,8 +39,8 @@ function App() {
     axiosWithAuth()
         .get(`/games?league=NFL&date=${date}`)            
         .then(res => {
-          setGames(res.data.events)
-          console.log(res.data.events);
+          setGames(res.data.results)
+          console.log(res.data.results);
         })
         .catch(err=> console.log(err))
   };
@@ -49,8 +49,8 @@ function App() {
     axiosWithAuth()
         .get(`/games?league=MLB&date=${date}`)            
         .then(res => {
-          setGames(res.data.events)
-          console.log(res.data.events);
+          setGames(res.data.results)
+          console.log(res.data.results);
         })
         .catch(err=> console.log(err))
   };
@@ -59,8 +59,8 @@ function App() {
     axiosWithAuth()
         .get(`/games?league=NBA&date=${date}`)            
         .then(res => {
-          setGames(res.data.events)
-          console.log(res.data.events);
+          setGames(res.data.results)
+          console.log(res.data.results);
         })
         .catch(err=> console.log(err))
   };
@@ -69,8 +69,8 @@ function App() {
     axiosWithAuth()
         .get(`/games?league=NHL&date=${date}`)            
         .then(res => {
-          setGames(res.data.events)
-          console.log(res.data.events);
+          setGames(res.data.results)
+          console.log(res.data.results);
         })
         .catch(err=> console.log(err))
   };
