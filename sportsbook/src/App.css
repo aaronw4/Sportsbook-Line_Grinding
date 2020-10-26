@@ -74,6 +74,10 @@ a:hover {
 .midpoints {
   margin-left: 50px;
 }
+.firstHalf {
+  width: 50px;
+  margin-left: 10px;
+}
 
 /* Midpoint Lines */
 
