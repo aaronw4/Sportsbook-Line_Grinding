@@ -7,7 +7,7 @@ const GameCards = (props) => {
     const games = props.games
     const halfPoint = props.halfPoint
     const setHalfPoint = props.setHalfPoint
-    const game = props.game
+    // const game = props.game
 
     return (
         gamePeriod === 'firstHalf' ?
@@ -91,7 +91,7 @@ const GameCards = (props) => {
         // </div>
         // :
         <div>
-            {games.results.map(game => (
+            {games.map(game => (
                 <div className='bets' key={game.gameId}>
                     <div className='teams'>
                         <h5>Teams</h5>
