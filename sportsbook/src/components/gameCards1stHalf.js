@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import MidPointLines from './lines/MidPointLines'
 
 const GameCards1stHalf = (props) => {
@@ -6,17 +6,6 @@ const GameCards1stHalf = (props) => {
     const halfPoint = props.halfPoint
     // const game = props.game
 
-    const [spread, setSpread] = useState();
-    const [total, setTotal] = useState();
-
-    const handleSpread = e => {
-        setSpread(e.target.value)
-    }
-
-    const handleTotal = e => {
-        setTotal(e.target.value)
-    }
-    
     return (
         // game === 'baseball' ?
         // <div>
@@ -90,13 +79,11 @@ const GameCards1stHalf = (props) => {
                             type='number'
                             step='0.1'
                             name='spread'
-                            value={spread}
                             placeholder='Away Spread'
-                            onChange={handleSpread}
                             className='firstHalf'
                             />
                         </p>
-                        <p>Home: {-1 * spread}</p>
+                        <p>Home:</p>
                         <br/>
                         <p>Away: None</p>
                         <p>Home: None</p>
@@ -106,17 +93,15 @@ const GameCards1stHalf = (props) => {
                             type='number'
                             step='0.1'
                             name='total' 
-                            value={total}
                             placeholder='Total'
-                            onChange={handleTotal}
                             className='firstHalf'
                             />
                         </p>
-                        <p>Under {total}</p>
+                        <p>Under</p>
                     </div>
                     <div className='midpoints'>
                         <h5>Starting</h5>
-                        <MidPointLines total={total}/>
+                        <MidPointLines total={0}/>
                     </div>
                 </div>
             ))}
