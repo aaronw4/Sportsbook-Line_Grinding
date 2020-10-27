@@ -19,9 +19,9 @@ const NcaaFB = (props) => {
 
     return (
         <div>
-            <head>
+            <header>
                 <title>NCAA FB</title>
-            </head>
+            </header>
             <div className='sportTitle'>
                 {gamePeriod === 'fullGame' ? 
                     <h3>NCAA FB Full Game Lines</h3> : 

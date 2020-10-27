@@ -7,9 +7,9 @@ const UFC_MMA = (props) => {
 
     return (
         <div>
-            <head>
+            <header>
                 <title>UFC / MMA</title>
-            </head>
+            </header>
             <div className='sportTitle'>
                 <h3>UFC_MMA Lines</h3> 
             </div>

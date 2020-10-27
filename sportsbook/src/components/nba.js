@@ -19,9 +19,9 @@ const NBA = (props) => {
     
     return (
         <div>
-            <head>
+            <header>
                 <title>NBA</title>
-            </head>
+            </header>
             <div className='sportTitle'>
                 {gamePeriod === 'fullGame' ? 
                     <h3>NBA Full Game Lines</h3> : 
