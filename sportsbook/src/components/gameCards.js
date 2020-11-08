@@ -109,8 +109,8 @@ const GameCards = (props) => {
                         <p>Away: {game.odds[0].spread.current.away}({game.odds[0].spread.current.awayOdds})</p>
                         <p>Home: {game.odds[0].spread.current.home}({game.odds[0].spread.current.homeOdds})</p>
                         <br/>
-                        <p>Away: {game.odds[0].moneyline.current.awayOdds}</p>
-                        <p>Home: {game.odds[0].moneyline.current.homeOdds}</p>
+                        <p>Away: {game.odds[0].moneyline ? <span>{game.odds[0].moneyline.current.awayOdds}</span> : <span>0</span>}</p>
+                        <p>Home: {game.odds[0].moneyline ? <span>{game.odds[0].moneyline.current.homeOdds}</span> : <span>0</span>}</p>
                         <br/>
                         <p>Over {game.odds[0].total.current.total}: {game.odds[0].total.current.overOdds}</p>
                         <p>Under {game.odds[0].total.current.total}: {game.odds[0].total.current.underOdds}</p>
