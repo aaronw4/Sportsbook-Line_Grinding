@@ -92,6 +92,7 @@ const GameCards = (props) => {
         // :
         <div>
             {games.map(game => (
+                game.odds ?
                 <div className='bets' key={game.gameId}>
                     <div className='teams'>
                         <h5>Teams</h5>
@@ -119,6 +120,8 @@ const GameCards = (props) => {
                         <h5>Starting</h5>
                         <MidPointLines total={game.odds[0].total.current.total}/>
                     </div>
+                </div> :
+                <div>
                 </div>
             ))}
         </div>
