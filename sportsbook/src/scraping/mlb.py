@@ -80,8 +80,8 @@ def scraping():
     moneylines = container.find_all('div', class_='eventLine-opener')
     for moneyline in moneylines:
         opening_moneyline = moneyline.text
+        MONEYLINES.append(opening_moneyline[:4])
         MONEYLINES.append(opening_moneyline[4:])
-        MONEYLINES.append(opening_moneyline[:-4])
 
 # Collect total odds
     soup_totals = BeautifulSoup(totals_data.text, 'lxml')
