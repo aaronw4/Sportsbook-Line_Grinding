@@ -8,7 +8,6 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.21.1",
     "chokidar": "^3.5.2",
-    "eslint": "^7.28.0",
     "fast-glob": "^3.2.5",
     "glob-parent": "^6.0.0",
     "immer": "^9.0.3",
@@ -29,9 +28,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [
