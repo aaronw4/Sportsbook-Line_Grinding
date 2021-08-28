@@ -1,5 +1,5 @@
 import React from 'react'
-import MidPointLines from './lines/MidPointLines'
+import MidPointLines from './MidPointLines'
 
 const GameCards1stHalf = (props) => {
     const games = props.games
