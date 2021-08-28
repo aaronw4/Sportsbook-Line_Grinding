@@ -74,14 +74,14 @@ const MidPointLines = (props) => {
             }
             {totalFav === 'Over' ?
                 <div>
-                    <p className='midpointResult'>Over {total}: -{totalMP}</p>
-                    <p className='midpointResult'>Under {total}: {totalMP}</p>
+                    <p className='midpointResult'>Over {props.total}: -{totalMP}</p>
+                    <p className='midpointResult'>Under {props.total}: {totalMP}</p>
                     <p className='midpointResult home'>Win Rate: {integer(Number(totalMP) / (Number(totalMP) + 100) * 100)}</p>
                 </div>
                 :
                 <div>
-                    <p className='midpointResult'>Over {total}: {totalMP}</p>
-                    <p className='midpointResult'>Under {total}: -{totalMP}</p>
+                    <p className='midpointResult'>Over {props.total}: {totalMP}</p>
+                    <p className='midpointResult'>Under {props.total}: -{totalMP}</p>
                     <p className='midpointResult home'>Win Rate: {integer(Number(totalMP) / (Number(totalMP) + 100) * 100)}</p>
                 </div>
             }            
