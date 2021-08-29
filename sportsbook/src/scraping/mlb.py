@@ -7,7 +7,7 @@ def scraping():
     # Above address gives moneyline
     RUN_EXTENSION = 'pointspread/'
     TOTALS_EXTENSION = 'totals/'
-    ID_EXTENSION = '?sID=qdco5jtsfaeioraq3bjrbgch'
+    DATE_EXTENSION = '?date=20210829'
     USER_SETTINGS = "bbuserid=10017271; bbpassword=7274d03eb3521d19e02cd7871f6b345c; bb_userid=10017271; bb_password=7274d03eb3521d19e02cd7871f6b345c; sbrSession=aaronw4"
 
     headers = {
@@ -26,15 +26,15 @@ def scraping():
     TOTALS_PRICE = []
 
     runline_data = requests.get(
-        ADDRESS + RUN_EXTENSION + ID_EXTENSION,
+        ADDRESS + RUN_EXTENSION + DATE_EXTENSION,
         headers=headers
     )
     moneyline_data = requests.get(
-        ADDRESS + ID_EXTENSION,
+        ADDRESS + DATE_EXTENSION,
         headers=headers
     )
     totals_data = requests.get(
-        ADDRESS + TOTALS_EXTENSION + ID_EXTENSION,
+        ADDRESS + TOTALS_EXTENSION + DATE_EXTENSION,
         headers=headers
     )
 
@@ -113,10 +113,10 @@ def scraping():
         team_stats['runline_odds_home'] = RUNLINES_PRICE[i+1]
         team_stats['moneyline_away'] = MONEYLINES[i]
         team_stats['moneyline_home'] = MONEYLINES[i+1]
-        team_stats['total'] = TOTALS[i//2]
+        team_stats['total'] = TOTALS[i]
         team_stats['total_over'] = TOTALS_PRICE[i]
         team_stats['total_under'] = TOTALS_PRICE[i+1]
-
+        
         ODDS.append(team_stats)
 
     with open('./sportsbook/src/scraping/mlb.json', 'w') as data:
