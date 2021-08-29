@@ -81,21 +81,8 @@ a:hover {
 
 /* Midpoint Lines */
 
-.midpointCont {
-  display: flex;
-}
-.MMA, .baseball {
-  display: none;
-}
-.midpointInput {
-  display: block;
-}
-.midpointButton {
-  margin-bottom: 45px;
-}
 .midpointResults {
   margin-left: 50px;
-  margin-top: -60px;
 }
 .midpointResult {
   line-height: 1;
