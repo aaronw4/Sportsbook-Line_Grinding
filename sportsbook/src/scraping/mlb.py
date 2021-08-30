@@ -7,7 +7,7 @@ def scraping():
     # Above address gives moneyline
     RUN_EXTENSION = 'pointspread/'
     TOTALS_EXTENSION = 'totals/'
-    DATE_EXTENSION = '?date=20210829'
+    DATE_EXTENSION = '?date=20210830'
     USER_SETTINGS = "bbuserid=10017271; bbpassword=7274d03eb3521d19e02cd7871f6b345c; bb_userid=10017271; bb_password=7274d03eb3521d19e02cd7871f6b345c; sbrSession=aaronw4"
 
     headers = {
@@ -53,21 +53,29 @@ def scraping():
         name = anchor.find('a').text
         TEAM_NAMES.append(name[0:3].strip())
 
-    pitchers = container.find_all('span', class_='player')
-    for pitcher in pitchers:
-        PITCHERS.append(' '.join(pitcher.text.split()))
+        pitcher = anchor.find('span', class_='player')
+        if pitcher:
+            PITCHERS.append(' '.join(pitcher.text.split()))
+        else:
+            PITCHERS.append('')
 
     spreads = container.find_all('div', class_='eventLine-opener')
     for spread in spreads:
         opening_spread = spread.text.split()
 
-        opening_spread1 = opening_spread[0]
-        opening_spread1 = opening_spread1.replace('\u00BD', '.5')
-        opening_odds1 = opening_spread[1][:4]
+        if len(opening_spread) == 0:
+            opening_spread1 = ''
+            opening_spread2 = ''
+            opening_odds1 = ''
+            opening_odds2 = ''
+        else:
+            opening_spread1 = opening_spread[0]
+            opening_spread1 = opening_spread1.replace('\u00BD', '.5')
+            opening_odds1 = opening_spread[1][:4]
 
-        opening_spread2 = opening_spread[1][4:]
-        opening_spread2 = opening_spread2.replace('\u00BD', '.5')
-        opening_odds2 = opening_spread[2]
+            opening_spread2 = opening_spread[1][4:]
+            opening_spread2 = opening_spread2.replace('\u00BD', '.5')
+            opening_odds2 = opening_spread[2]
 
         RUNLINES_SPREAD.append(opening_spread1)
         RUNLINES_SPREAD.append(opening_spread2)
