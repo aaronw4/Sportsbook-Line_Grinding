@@ -13,11 +13,13 @@
 }
 .homePageDate {
   text-align: center;
+  font-size: 18px;
   margin: 0;
 }
-.homePageInput {
-  font-size: 16px;
-  margin-top: 100px;
+.bannerButton {
+  display: block;
+  margin: 10px auto 0 auto;
+  font-size: 14px;
 }
 .homePageLinks {
   margin-top: 35vh;
@@ -34,20 +36,10 @@ a:hover {
 
 /*Sports pages  */
 
-.sportTitle {
-  text-align: center;
-  width: 100%;
-  position: fixed;
-  top: 74px;
-  background: black;
-}
-.sportTitle h3 {
-  margin: 0;
-}
 .lines {
   display: flex;
   margin-left: 10px; 
-  padding-top: 120px
+  padding-top: 130px
 }
 
 /* Game Cards */

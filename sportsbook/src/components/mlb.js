@@ -3,7 +3,7 @@ import Edge from './Edge';
 import GameCards from './gameCards';
 import GameCards1stHalf from './gameCards1stHalf'
 
-const MLB = () => {
+const MLB = (props) => {
     const [gamePeriod, setGamePeriod] = useState('fullGame');
 
     const handleGamePeriod = e => {
@@ -17,14 +17,26 @@ const MLB = () => {
 
     return (
         <div>
-            <div className='sportTitle'>
+            <div className='homePageBanner'>
                 {gamePeriod === 'fullGame' ? 
-                    <h3>MLB Full Game Lines</h3> : 
-                    <h3>MLB First 5 Innings Lines</h3>
+                    <header>    
+                        <h1 className='homePageTitle'>Sportsbook: MLB Full Game Lines</h1>
+                        <p className='homePageDate'>{props.date}</p>
+                    </header> 
+                    : 
+                    <header>    
+                        <h1 className='homePageTitle'>Sportsbook: MLB First 5 Innings Lines</h1>
+                        <p className='homePageDate'>{props.date}</p>
+                    </header>
                 } 
                 {gamePeriod === 'fullGame' ? 
-                    <button onClick={handleGamePeriod}>Show First 5 Innings Lines</button> : 
-                    <button onClick={handleGamePeriod}>Show Full Game Lines</button>
+                    <button onClick={handleGamePeriod} className='bannerButton'>
+                        Show First 5 Innings Lines
+                    </button> 
+                    : 
+                    <button onClick={handleGamePeriod} className='bannerButton'>
+                        Show Full Game Lines
+                    </button>
                 }  
             </div>   
             <div className='lines'>
