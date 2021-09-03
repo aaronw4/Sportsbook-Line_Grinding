@@ -1,21 +1,26 @@
 /* Home Page */
 
-.homePageTitle {
+.homePageBanner {
+  top: 0;
   width: 100%;
   position: fixed;
   background: black;
   text-align: center;
+  padding: 10px;
+}
+.homePageTitle {
   margin: 0;
 }
 .homePageDate {
   text-align: center;
+  margin: 0;
 }
 .homePageInput {
   font-size: 16px;
   margin-top: 100px;
 }
 .homePageLinks {
-  margin-top: 15vh;
+  margin-top: 35vh;
   display: flex;
   justify-content: space-evenly;
 }
@@ -33,7 +38,7 @@ a:hover {
   text-align: center;
   width: 100%;
   position: fixed;
-  top: 40px;
+  top: 74px;
   background: black;
 }
 .sportTitle h3 {
