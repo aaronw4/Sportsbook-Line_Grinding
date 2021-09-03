@@ -10,7 +10,7 @@
     "chokidar": "^3.5.2",
     "fast-glob": "^3.2.5",
     "glob-parent": "^6.0.0",
-    "immer": "^9.0.3",
+    "immer": "^9.0.6",
     "node-notifier": "^10.0.0",
     "object-path": "^0.11.5",
     "postcss": "^8.3.4",
