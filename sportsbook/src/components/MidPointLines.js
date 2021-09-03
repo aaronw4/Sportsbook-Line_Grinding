@@ -2,7 +2,7 @@ import React, {useEffect, useState } from "react";
 import { MidPoint } from '../functions/midPoint';
 
 const MidPointLines = (props) => {  
-    const condition2= props.game
+    const condition2= props.sport
     const condition1= ''  
     const [spreadMP, setSpreadMP] = useState(0);
     const [moneylineMP, setMoneylineMP] = useState(0);
@@ -18,7 +18,7 @@ const MidPointLines = (props) => {
         setMoneylineFav(favorite(props.moneylineAway, props.moneylineHome))
         setTotalMP(integer(MidPoint(props.totalOver, props.totalUnder)))
         setTotalFav(overUnderFav(props.totalOver, props.totalUnder))
-    }, [])
+    })
 
     function integer(number) {
         let num = Number(number);
@@ -27,7 +27,9 @@ const MidPointLines = (props) => {
     };
 
     function favorite(away, home) {
-        if (Number(away) < Number(home)) {
+        if (away === undefined) {
+            return undefined
+        } else if (Number(away) < Number(home)) {
             return('Away')
         } else {
             return('Home')
@@ -59,7 +61,10 @@ const MidPointLines = (props) => {
                     <p className='midpointResult home'>Win Rate: {integer(Number(spreadMP) / (Number(spreadMP) + 100) * 100)}</p>
                 </div>
             }
-            {moneylineFav === 'Away' ?
+            {moneylineFav === undefined ? 
+                <div></div>
+                :
+                moneylineFav === 'Away' ?
                 <div className={condition1}>
                     <p className='midpointResult'>Moneyline Away: -{moneylineMP}</p>
                     <p className='midpointResult'>Moneyline Home: {moneylineMP}</p>
