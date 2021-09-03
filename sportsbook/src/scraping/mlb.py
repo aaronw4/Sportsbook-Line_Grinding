@@ -7,7 +7,7 @@ def scraping():
     # Above address gives moneyline
     RUN_EXTENSION = 'pointspread/'
     TOTALS_EXTENSION = 'totals/'
-    DATE_EXTENSION = '?date=20210830'
+    DATE_EXTENSION = '?date=20210903'
     USER_SETTINGS = "bbuserid=10017271; bbpassword=7274d03eb3521d19e02cd7871f6b345c; bb_userid=10017271; bb_password=7274d03eb3521d19e02cd7871f6b345c; sbrSession=aaronw4"
 
     headers = {
@@ -15,15 +15,8 @@ def scraping():
         "User-Agent" : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0'
     }
     
-    ODDS = []
-    TIMES = []
-    TEAM_NAMES = []
-    PITCHERS = []
-    RUNLINES_SPREAD = []
-    RUNLINES_PRICE = []
-    MONEYLINES = []
-    TOTALS = []
-    TOTALS_PRICE = []
+    ODDS = [], TIMES = [], TEAM_NAMES = [], PITCHERS = [], RUNLINES_SPREAD = [], RUNLINES_PRICE = []
+    MONEYLINES = [], TOTALS = [], TOTALS_PRICE = []
 
     runline_data = requests.get(
         ADDRESS + RUN_EXTENSION + DATE_EXTENSION,
@@ -64,10 +57,8 @@ def scraping():
         opening_spread = spread.text.split()
 
         if len(opening_spread) == 0:
-            opening_spread1 = ''
-            opening_spread2 = ''
-            opening_odds1 = ''
-            opening_odds2 = ''
+            opening_spread1 = '', opening_spread2 = ''
+            opening_odds1 = '', opening_odds2 = ''
         else:
             opening_spread1 = opening_spread[0]
             opening_spread1 = opening_spread1.replace('\u00BD', '.5')
@@ -77,10 +68,8 @@ def scraping():
             opening_spread2 = opening_spread2.replace('\u00BD', '.5')
             opening_odds2 = opening_spread[2]
 
-        RUNLINES_SPREAD.append(opening_spread1)
-        RUNLINES_SPREAD.append(opening_spread2)
-        RUNLINES_PRICE.append(opening_odds1)
-        RUNLINES_PRICE.append(opening_odds2)
+        RUNLINES_SPREAD.append(opening_spread1), RUNLINES_SPREAD.append(opening_spread2)
+        RUNLINES_PRICE.append(opening_odds1), RUNLINES_PRICE.append(opening_odds2)
 
 # Collect moneyline odds
     soup_moneyline = BeautifulSoup(moneyline_data.text, 'lxml')
@@ -88,8 +77,7 @@ def scraping():
     moneylines = container.find_all('div', class_='eventLine-opener')
     for moneyline in moneylines:
         opening_moneyline = moneyline.text
-        MONEYLINES.append(opening_moneyline[:4])
-        MONEYLINES.append(opening_moneyline[4:])
+        MONEYLINES.append(opening_moneyline[:4]), MONEYLINES.append(opening_moneyline[4:])
 
 # Collect total odds
     soup_totals = BeautifulSoup(totals_data.text, 'lxml')
