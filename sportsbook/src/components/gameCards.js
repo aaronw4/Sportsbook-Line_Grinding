@@ -1,27 +1,13 @@
 import React, {useContext} from 'react'
 import { StatsContext } from '../context/statsContext';
 import MidPointLines from './MidPointLines'
-import GameCards1stHalf from './gameCards1stHalf'
 
-const GameCards = (props) => {
-    // const gamePeriod = props.gamePeriod    
-    const {fullGame} = useContext(StatsContext)    
-    // const halfPoint = props.halfPoint
-    // const setHalfPoint = props.setHalfPoint
-    const game = props.game
+const GameCards = (props) => { 
+    const {fullGame} = useContext(StatsContext)   
+    const sport = props.sport
 
     return (
-        // gamePeriod === 'firstHalf' ?
-        // <GameCards1stHalf
-        //     games={games}
-        //     halfPoint={halfPoint}
-        //     setHalfPoint={setHalfPoint}
-        //     game={props.game}
-        // />
-        // :
-        // MMA commented out because API does not provide MMA data
-        
-        game === 'baseball' ?
+        sport === 'baseball' ?
         <div>
             {fullGame.map(game => (
                 <div className='bets' key={game.team_away + game.team_home}>
@@ -63,6 +49,7 @@ const GameCards = (props) => {
                 </div>
             ))}
         </div> 
+        // MMA commented out because API does not provide MMA data     
         // : game === 'MMA' ?
         // <div>
         //     {games.map(game => (

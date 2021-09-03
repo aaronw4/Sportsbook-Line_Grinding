@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Edge from './Edge';
 import GameCards from './gameCards';
+import GameCards1stHalf from './gameCards1stHalf'
 
 const MLB = () => {
     const [gamePeriod, setGamePeriod] = useState('fullGame');
@@ -27,10 +28,10 @@ const MLB = () => {
                 }  
             </div>   
             <div className='lines'>
-                <GameCards
-                    gamePeriod={gamePeriod}
-                    sport='baseball'
-                />
+                {gamePeriod === 'fullGame' ?
+                    <GameCards sport='baseball'/> :
+                    <GameCards1stHalf sport='baseball'/>
+                }
                 <Edge/>
             </div>
         </div>
