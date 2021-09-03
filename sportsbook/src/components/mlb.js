@@ -2,11 +2,8 @@ import React, {useState} from 'react';
 import Edge from './Edge';
 import GameCards from './gameCards';
 
-const MLB = (props) => {
+const MLB = () => {
     const [gamePeriod, setGamePeriod] = useState('fullGame');
-    const [halfPoint, setHalfPoint] = useState(0);
-
-    let games = props.games;
 
     const handleGamePeriod = e => {
         e.preventDefault();
@@ -19,9 +16,6 @@ const MLB = (props) => {
 
     return (
         <div>
-            <header>
-                <title>MLB</title>
-            </header>
             <div className='sportTitle'>
                 {gamePeriod === 'fullGame' ? 
                     <h3>MLB Full Game Lines</h3> : 
@@ -35,10 +29,7 @@ const MLB = (props) => {
             <div className='lines'>
                 <GameCards
                     gamePeriod={gamePeriod}
-                    games={games}
-                    halfPoint={halfPoint}
-                    setHalfPoint={setHalfPoint}
-                    game='baseball'
+                    sport='baseball'
                 />
                 <Edge/>
             </div>
