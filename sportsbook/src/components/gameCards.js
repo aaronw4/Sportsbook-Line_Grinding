@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import { StatsContext } from '../context/statsContext';
 import MidPointLines from './MidPointLines';
-import BaseballFullGame from './baseball';
+import BaseballFullGame from './baseballFullGame';
 
 const GameCards = (props) => { 
     const {fullGame} = useContext(StatsContext)   
