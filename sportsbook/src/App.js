@@ -12,7 +12,8 @@ import NHL from './components/nhl';
 import './App.css';
 
 function App() {
-  const [games, setGames] = useState([]);
+  const [fullGame, setFullGame] = useState([]);
+  const [firstHalf, setFirstHalf] = useState([]);
   const date = '2020-03-10';
   
   function fetchNcaabb() {
@@ -46,8 +47,10 @@ function App() {
   };
 
   function fetchMLB() {
-    const gameOdds = require('./scraping/mlb.json')
-    setGames(gameOdds)
+    const fullGameOdds = require('./scraping/mlb.json')
+    const firstHalfOdds = require('./scraping/mlbHalf.json')
+    setFullGame(fullGameOdds)
+    setFirstHalf(firstHalfOdds)
   };
 
   function fetchNBA() {
@@ -82,7 +85,7 @@ function App() {
 
   return (
     <div className="App">
-      <StatsContext.Provider value={games}>
+      <StatsContext.Provider value={fullGame, firstHalf}>
         <Route path='/'>       
           <h1 className='homePageTitle'>Sportsbook</h1>
         </Route>
@@ -122,27 +125,27 @@ function App() {
         </Route>
 
         <Route path='/ncaabb'>
-          <NcaaBB games={games} date={date}/>
+          <NcaaBB/>
         </Route>
 
         <Route path='/ncaafb'>
-          <NcaaFB games={games} date={date}/>
+          <NcaaFB/>
         </Route>
 
         <Route path='/nfl'>
-          <NFL games={games} date={date}/>
+          <NFL/>
         </Route>
 
         <Route path='/nba'>
-          <NBA games={games} date={date}/>
+          <NBA/>
         </Route>
 
         <Route path='/mlb'>
-          <MLB games={games} date={date}/>
+          <MLB/>
         </Route>
 
         <Route path='/nhl'>
-          <NHL games={games} date={date}/>
+          <NHL/>
         </Route>
 
         {/* <Route path='/ufc_mma'>
