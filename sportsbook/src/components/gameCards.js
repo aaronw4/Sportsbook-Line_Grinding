@@ -5,7 +5,7 @@ import GameCards1stHalf from './gameCards1stHalf'
 
 const GameCards = (props) => {
     // const gamePeriod = props.gamePeriod    
-    const games = useContext(StatsContext)    
+    const {fullGame} = useContext(StatsContext)    
     // const halfPoint = props.halfPoint
     // const setHalfPoint = props.setHalfPoint
     const game = props.game
@@ -23,7 +23,7 @@ const GameCards = (props) => {
         
         game === 'baseball' ?
         <div>
-            {games.map(game => (
+            {fullGame.map(game => (
                 <div className='bets' key={game.team_away + game.team_home}>
                     <div className="teams">
                         <h5>Teams</h5>
@@ -98,7 +98,7 @@ const GameCards = (props) => {
         // </div>
         :
         <div>
-            {games.map(game => (
+            {fullGame.map(game => (
                 game.odds ?
                 <div className='bets' key={game.gameId}>
                     <div className='teams'>
