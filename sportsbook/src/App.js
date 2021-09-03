@@ -14,7 +14,7 @@ import './App.css';
 function App() {
   const [fullGame, setFullGame] = useState([]);
   const [firstHalf, setFirstHalf] = useState([]);
-  const date = '2020-03-10';
+  const date = new Date().toDateString();
   
   function fetchNcaabb() {
       // axiosWithAuth()
@@ -85,20 +85,14 @@ function App() {
 
   return (
     <div className="App">
-      <StatsContext.Provider value={fullGame, firstHalf}>
-        <Route path='/'>       
-          <h1 className='homePageTitle'>Sportsbook</h1>
+      <StatsContext.Provider value={{fullGame, firstHalf}}>
+        <Route path='/'>
+          <header className='homePageBanner'>    
+            <h1 className='homePageTitle'>Sportsbook</h1>
+            <p className='homePageDate'>{date}</p>
+          </header>
         </Route>
         <Route exact path='/'> 
-          <form className='homePageDate'>
-            <input
-              type='string'
-              name='date'
-              value={date}
-              placeholder={date}
-              className='homePageInput'
-            />
-          </form>
           <div className='homePageLinks'>
             <Link onClick={fetchNcaabb} to='/ncaabb'>
               <h2 className='homePageLink'>NCAA BB</h2>
