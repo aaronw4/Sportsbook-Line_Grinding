@@ -6,7 +6,7 @@ def scraping():
     ADDRESS = 'https://classic.sportsbookreview.com/betting-odds/mlb-baseball/'
     RUN_EXTENSION = 'pointspread/1st-half/'
     TOTALS_EXTENSION = 'totals/1st-half/'
-    DATE_EXTENSION = '?date=20210903'
+    DATE_EXTENSION = '?date=20210904'
     USER_SETTINGS = "bbuserid=10017271; bbpassword=7274d03eb3521d19e02cd7871f6b345c; bb_userid=10017271; bb_password=7274d03eb3521d19e02cd7871f6b345c; sbrSession=aaronw4"
 
     headers = {
@@ -14,8 +14,14 @@ def scraping():
         "User-Agent" : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0'
     }
     
-    ODDS = [], TIMES = [], TEAM_NAMES = [], PITCHERS = []
-    RUNLINES_SPREAD = [], RUNLINES_PRICE = [], TOTALS = [], TOTALS_PRICE = []
+    ODDS = []
+    TIMES = []
+    TEAM_NAMES = []
+    PITCHERS = []
+    RUNLINES_SPREAD = []
+    RUNLINES_PRICE = []
+    TOTALS = []
+    TOTALS_PRICE = []
 
     runline_data = requests.get(
         ADDRESS + RUN_EXTENSION + DATE_EXTENSION,
