@@ -8,7 +8,7 @@ import NFL from './components/nfl';
 import NBA from './components/nba';
 import MLB from './components/mlb';
 import NHL from './components/nhl';
-// import UFC_MMA from './components/ufc_mma';
+import UFC_MMA from './components/ufc_mma';
 import './App.css';
 
 function App() {
@@ -17,33 +17,12 @@ function App() {
   const date = new Date().toDateString();
   
   function fetchNcaabb() {
-      // axiosWithAuth()
-      //     .get(`/games?league=NCAAB&date=${date}`)  
-      //     .then(res => {
-      //       setGames(res.data.results)
-      //       console.log(res.data.results);
-      //     })
-      //     .catch(err=> console.log(err))
   };
 
   function fetchNcaafb() {
-    // axiosWithAuth()
-    //     .get(`/games?league=NCAAF&date=${date}`)         
-    //     .then(res => {
-    //       setGames(res.data.results)
-    //       console.log(res.data.results);
-    //     })
-    //     .catch(err=> console.log(err))
   };
 
   function fetchNFL() {
-    // axiosWithAuth()
-    //     .get(`/games?league=NFL&date=${date}`)            
-    //     .then(res => {
-    //       setGames(res.data.results)
-    //       console.log(res.data.results);
-    //     })
-    //     .catch(err=> console.log(err))
   };
 
   function fetchMLB() {
@@ -54,45 +33,22 @@ function App() {
   };
 
   function fetchNBA() {
-    // axiosWithAuth()
-    //     .get(`/games?league=NBA&date=${date}`)            
-    //     .then(res => {
-    //       setGames(res.data.results)
-    //       console.log(res.data.results);
-    //     })
-    //     .catch(err=> console.log(err))
   };
 
   function fetchNHL() {
-    // axiosWithAuth()
-    //     .get(`/games?league=NHL&date=${date}`)            
-    //     .then(res => {
-    //       setGames(res.data.results)
-    //       console.log(res.data.results);
-    //     })
-    //     .catch(err=> console.log(err))
   };
-  // New site does not suppot MMA
-  // function fetchUFC_MMA() {
-  //   axiosWithAuth()
-  //       .get(`/sports/7/events/${date}?include=all_periods&include=scores&offset=0`)            
-  //       .then(res => {
-  //         setGames(res.data.events)
-  //         console.log(res.data.events);
-  //       })
-  //       .catch(err=> console.log(err))
-  // };
+  
+  function fetchUFC_MMA() {
+  };
 
   return (
     <div className="App">
       <StatsContext.Provider value={{fullGame, firstHalf}}>
-        <Route path='/'>
+        <Route exact path='/'> 
           <header className='homePageBanner'>    
             <h1 className='homePageTitle'>Sportsbook</h1>
             <p className='homePageDate'>{date}</p>
           </header>
-        </Route>
-        <Route exact path='/'> 
           <div className='homePageLinks'>
             <Link onClick={fetchNcaabb} to='/ncaabb'>
               <h2 className='homePageLink'>NCAA BB</h2>
@@ -112,39 +68,39 @@ function App() {
             <Link onClick={fetchNHL} to='/nhl'>
               <h2>NHL</h2>
             </Link>
-            {/* <Link onClick={fetchUFC_MMA} to='/ufc_mma'>
+            <Link onClick={fetchUFC_MMA} to='/ufc_mma'>
               <h2>UFC/MMA</h2>
-            </Link> */}
+            </Link>
           </div>
         </Route>
 
         <Route path='/ncaabb'>
-          <NcaaBB/>
+          <NcaaBB date={date}/>
         </Route>
 
         <Route path='/ncaafb'>
-          <NcaaFB/>
+          <NcaaFB date={date}/>
         </Route>
 
         <Route path='/nfl'>
-          <NFL/>
+          <NFL date={date}/>
         </Route>
 
         <Route path='/nba'>
-          <NBA/>
+          <NBA date={date}/>
         </Route>
 
         <Route path='/mlb'>
-          <MLB/>
+          <MLB date={date}/>
         </Route>
 
         <Route path='/nhl'>
-          <NHL/>
+          <NHL date={date}/>
         </Route>
 
-        {/* <Route path='/ufc_mma'>
-          <UFC_MMA games={games} date={date}/>
-        </Route> */}
+        <Route path='/ufc_mma'>
+          <UFC_MMA date={date}/>
+        </Route>
       </StatsContext.Provider>
     </div>
   );
