@@ -40,7 +40,7 @@ const Baseball1stHalf = (props) => {
                 </div>
                 <div className='currentLines'>
                     <h5>Starting</h5>
-                    {game.runline_away < 0 ?  
+                    {game.runline_odds_away < 0 ?  
                         <div>                  
                             <p>Away: -0.5({runline(game.runline_odds_away).toFixed(0)})</p>
                             <p>Home: +0.5({runline(game.runline_odds_home).toFixed(0)})</p>
