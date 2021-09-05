@@ -1,8 +1,25 @@
 import React from 'react';
 import MidPointLines from './MidPointLines';
+import { americanToDecimal, decimalToAmerican } from '../functions/convertOdds';
 
 const Baseball1stHalf = (props) => {
     const firstHalf = props.firstHalf 
+
+    function runline(moneyline) {
+        let decimal = americanToDecimal(moneyline)
+        let percentage = 1 / decimal
+        let adjPercent
+
+        if (percentage < 0.50) {
+            adjPercent = percentage + 0.08
+        } else (
+            adjPercent = percentage - 0.08
+        )
+
+        let runline = decimalToAmerican(1 / adjPercent)
+
+        return runline
+    }
 
     return (
         <div>
@@ -18,21 +35,35 @@ const Baseball1stHalf = (props) => {
                 </div>
                 <div className='betTypes'>
                     <p className='betText'>Spread</p>
+                    <p className='betText'>Moneyline</p>
                     <p className='betText'>Total</p>
                 </div>
                 <div className='currentLines'>
                     <h5>Starting</h5>
-                    <p>Away: {game.runline_away}({game.runline_odds_away})</p>
-                    <p>Home: {game.runline_home}({game.runline_odds_home})</p>
+                    {game.runline_away < 0 ?  
+                        <div>                  
+                            <p>Away: -0.5({runline(game.runline_odds_away).toFixed(0)})</p>
+                            <p>Home: +0.5({runline(game.runline_odds_home).toFixed(0)})</p>
+                        </div>
+                    :   
+                        <div>                 
+                            <p>Away: +0.5({runline(game.runline_odds_away).toFixed(0)})</p>
+                            <p>Home: -0.5({runline(game.runline_odds_home).toFixed(0)})</p>
+                        </div>
+                    } 
+                    <br/>
+                    <p>Away: {game.runline_odds_away}</p>
+                    <p>Home: {game.runline_odds_home}</p>
                     <br/>
                     <p>Over {game.total}: {game.total_over}</p>
                     <p>Under {game.total}: {game.total_under}</p>
                 </div>
                 <div className='midpoints'>
                     <MidPointLines 
-                        spreadAway={game.runline_odds_away}
-                        spreadHome={game.runline_odds_home}
-                        game={game.game}
+                        spreadAway={runline(game.runline_odds_away)}
+                        spreadHome={runline(game.runline_odds_home)}
+                        moneylineAway={game.runline_odds_away}
+                        moneylineHome={game.runline_odds_home}
                         totalOver={game.total_over}
                         totalUnder={game.total_under}
                     />
