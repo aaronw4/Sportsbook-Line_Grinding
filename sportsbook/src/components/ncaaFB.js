@@ -6,8 +6,6 @@ const NcaaFB = (props) => {
     const [gamePeriod, setGamePeriod] = useState('fullGame');
     const [halfPoint, setHalfPoint] = useState(0);
 
-    let games = props.games;
-
     const handleGamePeriod = e => {
         e.preventDefault();
         if (gamePeriod === 'fullGame') {
@@ -35,7 +33,6 @@ const NcaaFB = (props) => {
             <div className='lines'>
                 <GameCards 
                     gamePeriod={gamePeriod} 
-                    games={games}
                     halfPoint={halfPoint}
                     setHalfPoint={setHalfPoint}
                     game='ncaaFB'
