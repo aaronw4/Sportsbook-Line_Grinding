@@ -51,7 +51,7 @@ const GameCards = (props) => {
                     <div className='teams'>
                         <h5>Teams</h5>
                         <p>{game.team_away}</p>
-                        <p>{game.team_team}</p>
+                        <p>{game.team_home}</p>
                         <p>{game.time}</p>
                     </div>
                     <div className='betTypes'>
