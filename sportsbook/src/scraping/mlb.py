@@ -7,7 +7,7 @@ def scraping():
     # Above address gives moneyline
     RUN_EXTENSION = 'pointspread/'
     TOTALS_EXTENSION = 'totals/'
-    DATE_EXTENSION = '?date=20210904'
+    DATE_EXTENSION = '?date=20210905'
     USER_SETTINGS = "bbuserid=10017271; bbpassword=7274d03eb3521d19e02cd7871f6b345c; bb_userid=10017271; bb_password=7274d03eb3521d19e02cd7871f6b345c; sbrSession=aaronw4"
 
     headers = {
@@ -124,7 +124,7 @@ def scraping():
         
         ODDS.append(team_stats)
 
-    with open('./sportsbook/src/scraping/mlb.json', 'w') as data:
+    with open('./sportsbook/src/data/mlb.json', 'w') as data:
         json.dump(ODDS, data)
 
 if __name__ == "__main__":

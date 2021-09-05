@@ -116,7 +116,7 @@ def scraping():
         
         ODDS.append(team_stats)
 
-    with open('./sportsbook/src/scraping/ncaaFB.json', 'w') as data:
+    with open('./sportsbook/src/data/ncaaFB.json', 'w') as data:
         json.dump(ODDS, data)
 
 if __name__ == "__main__":
