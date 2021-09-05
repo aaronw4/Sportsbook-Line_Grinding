@@ -11,7 +11,7 @@ const GameCards = (props) => {
         sport === 'baseball' ?
         <BaseballFullGame fullGame={fullGame}/>
         // MMA commented out because API does not provide MMA data     
-        // : game === 'MMA' ?
+        // : sport === 'MMA' ?
         // <div>
         //     {games.map(game => (
         //         <div className='bets' key={game.line_periods[3].period_full_game.moneyline.line_id}>
@@ -47,13 +47,12 @@ const GameCards = (props) => {
         :
         <div>
             {fullGame.map(game => (
-                game.odds ?
-                <div className='bets' key={game.gameId}>
+                <div className='bets' key={game.team_away + game.team_home}>
                     <div className='teams'>
                         <h5>Teams</h5>
-                        <p>{game.teams.away.team}</p>
-                        <p>{game.teams.home.team}</p>
-                        <p>{game.status}</p>
+                        <p>{game.team_away}</p>
+                        <p>{game.team_team}</p>
+                        <p>{game.time}</p>
                     </div>
                     <div className='betTypes'>
                         <p className='betText'>Spread</p>
@@ -61,22 +60,26 @@ const GameCards = (props) => {
                         <p className='betText'>Total</p>
                     </div>
                     <div className='currentLines'>
-                        <h5>Current</h5>
-                        <p>Away: {game.odds[0].spread.current.away}({game.odds[0].spread.current.awayOdds})</p>
-                        <p>Home: {game.odds[0].spread.current.home}({game.odds[0].spread.current.homeOdds})</p>
-                        <br/>
-                        <p>Away: {game.odds[0].moneyline ? <span>{game.odds[0].moneyline.current.awayOdds}</span> : <span>0</span>}</p>
-                        <p>Home: {game.odds[0].moneyline ? <span>{game.odds[0].moneyline.current.homeOdds}</span> : <span>0</span>}</p>
-                        <br/>
-                        <p>Over {game.odds[0].total.current.total}: {game.odds[0].total.current.overOdds}</p>
-                        <p>Under {game.odds[0].total.current.total}: {game.odds[0].total.current.underOdds}</p>
+                        <h5>Starting</h5>
+                    <p>Away: {game.spread_away}({game.spread_odds_away})</p>
+                    <p>Home: {game.spread_home}({game.spread_odds_home})</p>
+                    <br/>
+                    <p>Away: {game.moneyline_away}</p>
+                    <p>Home: {game.moneyline_home}</p>
+                    <br/>
+                    <p>Over {game.total}: {game.total_over}</p>
+                    <p>Under {game.total}: {game.total_under}</p>
                     </div>
                     <div className='midpoints'>
-                        <h5>Starting</h5>
-                        <MidPointLines total={game.odds[0].total.current.total}/>
+                        <MidPointLines 
+                            spreadAway={game.spread_odds_away}
+                            spreadHome={game.spread_odds_home}
+                            moneylineAway={game.moneyline_away}
+                            moneylineHome={game.moneyline_home}
+                            totalOver={game.total_over}
+                            totalUnder={game.total_under}
+                        />
                     </div>
-                </div> :
-                <div>
                 </div>
             ))}
         </div>
