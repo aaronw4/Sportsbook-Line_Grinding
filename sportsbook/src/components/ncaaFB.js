@@ -17,17 +17,25 @@ const NcaaFB = (props) => {
 
     return (
         <div>
-            <header>
-                <title>NCAA FB</title>
-            </header>
             <div className='sportTitle'>
                 {gamePeriod === 'fullGame' ? 
-                    <h3>NCAA FB Full Game Lines</h3> : 
-                    <h3>NCAA FB First Half Lines</h3>
+                <header>
+                    <h1 className='homePageTitle'>Sportsbook: NCAA FB Full Game Lines</h1>
+                    <p className='homePageDate'>{props.date}</p>
+                </header> : 
+                <header>
+                    <h1 className='homePageTitle'>Sportsbook: NCAA FB First Half Lines</h1>
+                    <p className='homePageDate'>{props.date}</p>
+                </header>
                 } 
                 {gamePeriod === 'fullGame' ? 
-                    <button onClick={handleGamePeriod}>Show First Half Lines</button> : 
-                    <button onClick={handleGamePeriod}>Show Full Game Lines</button>
+                    <button onClick={handleGamePeriod} className='bannerButton'>
+                        Show First Half Lines
+                    </button> 
+                    : 
+                    <button onClick={handleGamePeriod} className='bannerButton'>
+                        Show Full Game Lines
+                    </button>
                 }  
             </div>   
             <div className='lines'>
