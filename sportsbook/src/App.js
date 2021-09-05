@@ -20,14 +20,18 @@ function App() {
   };
 
   function fetchNcaafb() {
+    const fullGameOdds = require('./data/ncaaFB.json')
+    // const firstHalfOdds = require('./data/ncaaFBHalf.json')
+    setFullGame(fullGameOdds)
+    // setFirstHalf(firstHalfOdds)
   };
 
   function fetchNFL() {
   };
 
   function fetchMLB() {
-    const fullGameOdds = require('./scraping/mlb.json')
-    const firstHalfOdds = require('./scraping/mlbHalf.json')
+    const fullGameOdds = require('./data/mlb.json')
+    const firstHalfOdds = require('./data/mlbHalf.json')
     setFullGame(fullGameOdds)
     setFirstHalf(firstHalfOdds)
   };
