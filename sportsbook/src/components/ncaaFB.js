@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Edge from './Edge';
 import GameCards from './gameCards';
+import GameCards1stHalf from './gameCards1stHalf';
 
 const NcaaFB = (props) => {
     const [gamePeriod, setGamePeriod] = useState('fullGame');
@@ -39,12 +40,18 @@ const NcaaFB = (props) => {
                 }  
             </div>   
             <div className='lines'>
-                <GameCards 
-                    gamePeriod={gamePeriod} 
+                {gamePeriod === 'fullGame' ?
+                    <GameCards 
                     halfPoint={halfPoint}
                     setHalfPoint={setHalfPoint}
-                    game='ncaaFB'
-                />
+                    sport='ncaaFB'
+                    /> :
+                    <GameCards1stHalf
+                    halfPoint={halfPoint}
+                    setHalfPoint={setHalfPoint}
+                    sport='ncaaFB'
+                    />
+                }
                 <Edge/>
             </div>
         </div>
