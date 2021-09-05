@@ -2,8 +2,6 @@ import React, {useEffect, useState } from "react";
 import { MidPoint } from '../functions/midPoint';
 
 const MidPointLines = (props) => {  
-    const condition2= props.sport
-    const condition1= ''  
     const [spreadMP, setSpreadMP] = useState(0);
     const [moneylineMP, setMoneylineMP] = useState(0);
     const [totalMP, setTotalMP] = useState(0);
@@ -48,14 +46,14 @@ const MidPointLines = (props) => {
         <div className='midpointResults'>
             <h5>Midpoints</h5>
             {spreadFav === 'Away' ? 
-                <div className={condition2}>
+                <div>
                     <p className='midpointResult'>Spread Away: -{spreadMP}</p>
                     <p className='midpointResult'>Spread Home: {spreadMP}</p>
                     <p className='midpointResult home'>Win Rate: {integer(Number(spreadMP) / (Number(spreadMP) + 100) * 100)}</p>
 
                 </div>
                 :
-                <div className={condition2}>
+                <div>
                     <p className='midpointResult'>Spread Away: {spreadMP}</p>
                     <p className='midpointResult'>Spread Home: -{spreadMP}</p>
                     <p className='midpointResult home'>Win Rate: {integer(Number(spreadMP) / (Number(spreadMP) + 100) * 100)}</p>
@@ -65,13 +63,13 @@ const MidPointLines = (props) => {
                 <div></div>
                 :
                 moneylineFav === 'Away' ?
-                <div className={condition1}>
+                <div>
                     <p className='midpointResult'>Moneyline Away: -{moneylineMP}</p>
                     <p className='midpointResult'>Moneyline Home: {moneylineMP}</p>
                     <p className='midpointResult home'>Win Rate: {integer(Number(moneylineMP) / (Number(moneylineMP) + 100) * 100)}</p>
                 </div>
                 :
-                <div className={condition1}>
+                <div>
                     <p className='midpointResult'>Moneyline Away: {moneylineMP}</p>
                     <p className='midpointResult'>Moneyline Home: -{moneylineMP}</p>
                     <p className='midpointResult home'>Win Rate: {integer(Number(moneylineMP) / (Number(moneylineMP) + 100) * 100)}</p>

@@ -38,7 +38,6 @@ const BaseballFullGame = (props) => {
                         spreadHome={game.runline_odds_home}
                         moneylineAway={game.moneyline_away}
                         moneylineHome={game.moneyline_home}
-                        game={game.game}
                         totalOver={game.total_over}
                         totalUnder={game.total_under}
                     />
