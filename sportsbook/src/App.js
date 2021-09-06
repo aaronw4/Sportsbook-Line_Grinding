@@ -21,9 +21,9 @@ function App() {
 
   function fetchNcaafb() {
     const fullGameOdds = require('./data/ncaaFB.json')
-    // const firstHalfOdds = require('./data/ncaaFBHalf.json')
+    const firstHalfOdds = require('./data/ncaaFBhalf.json')
     setFullGame(fullGameOdds)
-    // setFirstHalf(firstHalfOdds)
+    setFirstHalf(firstHalfOdds)
   };
 
   function fetchNFL() {
