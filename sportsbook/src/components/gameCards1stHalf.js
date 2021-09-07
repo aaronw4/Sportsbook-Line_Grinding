@@ -13,12 +13,12 @@ const GameCards1stHalf = (props) => {
         :
         <div>
             {firstHalf.map(game => (
-                <div className='bets' key={game.gameId}>
+                <div className='bets' key={game.team_away + game.team_home}>
                     <div className='teams'>
                         <h5>Teams</h5>
-                        <p>{game.teams.away.team}</p>
-                        <p>{game.teams.home.team}</p>
-                        <p>{game.status}</p>
+                        <p>{game.team_away}</p>
+                        <p>{game.team_home}</p>
+                        <p>{game.time}</p>
                     </div>
                     <div className='betTypes'>
                         <p className='betText'>Spread</p>
@@ -26,35 +26,25 @@ const GameCards1stHalf = (props) => {
                         <p className='betText'>Total</p>
                     </div>
                     <div className='currentLines'>
-                        <h5>Current</h5>
-                        <p>Away: 
-                            <input 
-                            type='number'
-                            step='0.1'
-                            name='spread'
-                            placeholder='Away Spread'
-                            className='firstHalf'
-                            />
-                        </p>
-                        <p>Home:</p>
+                        <h5>Starting</h5>
+                        <p>Away: {game.spread_away}({game.spread_odds_away})</p>
+                        <p>Home: {game.spread_home}({game.spread_odds_home})</p>
                         <br/>
-                        <p>Away: None</p>
-                        <p>Home: None</p>
+                        <p>Away: {game.moneyline_away}</p>
+                        <p>Home: {game.moneyline_home}</p>
                         <br/>
-                        <p>Over 
-                            <input 
-                            type='number'
-                            step='0.1'
-                            name='total' 
-                            placeholder='Total'
-                            className='firstHalf'
-                            />
-                        </p>
-                        <p>Under</p>
+                        <p>Over: {game.total}: {game.total_over}</p>
+                        <p>Under: {game.total}: {game.total_under}</p>
                     </div>
                     <div className='midpoints'>
-                        <h5>Starting</h5>
-                        <MidPointLines total={0}/>
+                        <MidPointLines 
+                            spreadAway={game.spread_odds_away}
+                            spreadHome={game.spread_odds_home}
+                            moneylineAway={game.moneyline_away}
+                            moneylineHome={game.moneyline_home}
+                            totalOver={game.total_over}
+                            totalUnder={game.total_under}
+                        />
                     </div>
                 </div>
             ))}
