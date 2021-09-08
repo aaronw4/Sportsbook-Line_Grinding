@@ -14,7 +14,7 @@ import './App.css';
 function App() {
   const [fullGame, setFullGame] = useState([]);
   const [firstHalf, setFirstHalf] = useState([]);
-  const date = new Date().toDateString();
+  const [date, setDate] = useState(new Date().toDateString());
   
   function fetchNcaabb() {
   };
@@ -24,6 +24,7 @@ function App() {
     const firstHalfOdds = require('./data/ncaaFBhalf.json')
     setFullGame(fullGameOdds)
     setFirstHalf(firstHalfOdds)
+    setDate(fullGameOdds[0]['date'])
   };
 
   function fetchNFL() {
@@ -34,6 +35,7 @@ function App() {
     const firstHalfOdds = require('./data/mlbHalf.json')
     setFullGame(fullGameOdds)
     setFirstHalf(firstHalfOdds)
+    setDate(fullGameOdds[0]['date'])
   };
 
   function fetchNBA() {
@@ -51,7 +53,6 @@ function App() {
         <Route exact path='/'> 
           <header className='homePageBanner'>    
             <h1 className='homePageTitle'>Sportsbook</h1>
-            <p className='homePageDate'>{date}</p>
           </header>
           <div className='homePageLinks'>
             <Link onClick={fetchNcaabb} to='/ncaabb'>
