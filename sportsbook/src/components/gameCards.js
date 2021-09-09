@@ -67,8 +67,8 @@ const GameCards = (props) => {
                     <p>Away: {game.moneyline_away}</p>
                     <p>Home: {game.moneyline_home}</p>
                     <br/>
-                    <p>Over {game.total}: {game.total_over}</p>
-                    <p>Under {game.total}: {game.total_under}</p>
+                    <p>Over: {game.total}: {game.total_over}</p>
+                    <p>Under: {game.total}: {game.total_under}</p>
                     </div>
                     <div className='midpoints'>
                         <MidPointLines 
