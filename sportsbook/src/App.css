@@ -91,10 +91,28 @@ a:hover {
 /* Edge */
 
 .edge {
-  margin: 20px;
+  margin: 10px;
 }
-.form{
+.bottomEdge{
+  margin-bottom: 30px;
+}
+.edgeForm {
   position: fixed;
   top: 160px;
   left: 1000px;
+}
+
+/* Line Move Calc */
+
+.LMform {
+  position: fixed;
+  top: 400px;
+  left: 1000px;
+  border-top: white 5px solid;
+}
+.topNewSpread{
+  margin-top: 20px;
+}
+.newSpread {
+  margin-right: 20px;
 }
