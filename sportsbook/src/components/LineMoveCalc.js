@@ -11,10 +11,10 @@ const LineMoveCalc = () => {
     const [newSpreadHome, setNewSpreadHome] = useState();
     const [newOddsAway, setNewOddsAway] = useState(0);
     const [newOddsHome, setNewOddsHome] = useState(0);
-    const [halfAboveFav, setHalfAboveFav] = useState();
-    const [halfAboveDog, setHalfAboveDog] = useState();
-    const [halfBelowFav, setHalfBelowFav] = useState();
-    const [halfBelowDog, setHalfBelowDog] = useState();
+    const [pinnOldAway, setPinnOldAway] = useState();
+    const [pinnOldHome, setPinnOldHome] = useState();
+    const [pinnNewAway, setPinnNewAway] = useState();
+    const [pinnNewHome, setPinnNewHome] = useState();
 
     const handleOldSpreadAway = e => {setOldSpreadAway(e.target.value)}
     const handleOldSpreadHome = e => {setOldSpreadHome(e.target.value)}
@@ -22,17 +22,22 @@ const LineMoveCalc = () => {
     const handleOldOddsHome = e => {setOldOddsHome(e.target.value)}
     const handleNewSpreadAway = e => {setNewSpreadAway(e.target.value)}
     const handleNewSpreadHome = e => {setNewSpreadHome(e.target.value)}
-    const handleHalfAboveFav = e => {setHalfAboveFav(e.target.value)}
-    const handleHalfAboveDog = e => {setHalfAboveDog(e.target.value)}
-    const handleHalfBelowFav = e => {setHalfBelowFav(e.target.value)}
-    const handleHalfBelowDog = e => {setHalfBelowDog(e.target.value)}
+    const handlePinnOldAway = e => {setPinnOldAway(e.target.value)}
+    const handlePinnOldHome = e => {setPinnOldHome(e.target.value)}
+    const handlePinnNewAway = e => {setPinnNewAway(e.target.value)}
+    const handlePinnNewHome = e => {setPinnNewHome(e.target.value)}
+
+    let PF = pushFreq(pinnOldAway, pinnOldHome, pinnNewAway, pinnNewHome)
 
     const handleSubmit = e => {
         e.preventDefault();
         
-        let PF = pushFreq(halfBelowFav, halfBelowDog, halfAboveFav, halfAboveDog)
-        setNewOddsAway(newLine(oldOddsAway, oldOddsHome, PF)) 
-        setNewOddsHome(newLine(oldOddsHome, oldOddsAway, PF))
+        if (oldSpreadAway > newSpreadAway) {
+            setNewOddsAway(newLine(oldOddsAway, false, PF)) 
+            setNewOddsHome(newLine(oldOddsHome, true, PF))
+        } else {
+            setNewOddsAway(newLine(oldOddsAway, true, PF)) 
+            setNewOddsHome(newLine(oldOddsHome, false, PF))}
     }
 
     return (
@@ -88,18 +93,18 @@ const LineMoveCalc = () => {
                     <input
                         type='number'
                         step='1'
-                        name='halfAboveFav'
-                        value={halfAboveFav}
-                        placeholder='1/2 Above (Fav)'
-                        onChange={handleHalfAboveFav}
+                        name='pinnOldAway'
+                        value={pinnOldAway}
+                        placeholder='Pinn Old Away'
+                        onChange={handlePinnOldAway}
                     />
                     <input
                         type='number'
                         step='1'
-                        name='halfAboveDog'
-                        value={halfAboveDog}
-                        placeholder='1/2 Above (Dog)'
-                        onChange={handleHalfAboveDog}
+                        name='pinnOldHome'
+                        value={pinnOldHome}
+                        placeholder='Pinn Old Home'
+                        onChange={handlePinnOldHome}
                     />
                 </div>
                 <div>
@@ -115,26 +120,27 @@ const LineMoveCalc = () => {
                     <input
                         type='number'
                         step='1'
-                        name='halfBelowFav'
-                        value={halfBelowFav}
-                        placeholder='1/2 Below (Fav)'
-                        onChange={handleHalfBelowFav}
+                        name='pinnNewAway'
+                        value={pinnNewAway}
+                        placeholder='Pinn New Away'
+                        onChange={handlePinnNewAway}
                     />
                     <input
                         type='number'
                         step='1'
-                        name='halfBelowDog'
-                        value={halfBelowDog}
-                        placeholder='1/2 Below (Dog)'
-                        onChange={handleHalfBelowDog}
+                        name='pinnNewHome'
+                        value={pinnNewHome}
+                        placeholder='Pinn New Home'
+                        onChange={handlePinnNewHome}
                     />
                 </div>
                 <br/>
                 <button>Calculate</button>
             </form>
-            <div>
+            <div className='LMresults'>
                 <p>Away: {newSpreadAway}({(newOddsAway.toFixed(1))})</p>
                 <p>Home: {newSpreadHome}({(newOddsHome.toFixed(1))})</p>
+                <p>Push Frequency: {(PF*100).toFixed(1)}%</p>
             </div>
         </div>
     )
