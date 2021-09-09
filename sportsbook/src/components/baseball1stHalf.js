@@ -26,13 +26,13 @@ const Baseball1stHalf = (props) => {
                     <h5>Starting</h5>
                     {Number(game.runline_odds_away) < Number(game.runline_odds_home) ?  
                         <div>                  
-                            <p>Away: -0.5({newLine(game.runline_odds_away, game.runline_odds_home, 0.08).toFixed(0)})</p>
-                            <p>Home: +0.5({newLine(game.runline_odds_home, game.runline_odds_away, 0.08).toFixed(0)})</p>
+                            <p>Away: -0.5({newLine(game.runline_odds_away, false, 0.08).toFixed(0)})</p>
+                            <p>Home: +0.5({newLine(game.runline_odds_home, true, 0.08).toFixed(0)})</p>
                         </div>
                     :   
                         <div>                 
-                            <p>Away: +0.5({newLine(game.runline_odds_away, game.runline_odds_home, 0.08).toFixed(0)})</p>
-                            <p>Home: -0.5({newLine(game.runline_odds_home, game.runline_odds_away, 0.08).toFixed(0)})</p>
+                            <p>Away: +0.5({newLine(game.runline_odds_away, true, 0.08).toFixed(0)})</p>
+                            <p>Home: -0.5({newLine(game.runline_odds_home, false, 0.08).toFixed(0)})</p>
                         </div>
                     } 
                     <br/>
@@ -43,14 +43,25 @@ const Baseball1stHalf = (props) => {
                     <p>Under {game.total}: {game.total_under}</p>
                 </div>
                 <div className='midpoints'>
-                    <MidPointLines 
-                        spreadAway={newLine(game.runline_odds_away, game.runline_odds_home, 0.08)}
-                        spreadHome={newLine(game.runline_odds_home, game.runline_odds_away, 0.08)}
-                        moneylineAway={game.runline_odds_away}
-                        moneylineHome={game.runline_odds_home}
-                        totalOver={game.total_over}
-                        totalUnder={game.total_under}
-                    />
+                    {Number(game.runline_odds_away) < Number(game.runline_odds_home) ? 
+                        <MidPointLines 
+                            spreadAway={newLine(game.runline_odds_away, false, 0.08)}
+                            spreadHome={newLine(game.runline_odds_home, true, 0.08)}
+                            moneylineAway={game.runline_odds_away}
+                            moneylineHome={game.runline_odds_home}
+                            totalOver={game.total_over}
+                            totalUnder={game.total_under}
+                        /> 
+                    :
+                        <MidPointLines 
+                            spreadAway={newLine(game.runline_odds_away, true, 0.08)}
+                            spreadHome={newLine(game.runline_odds_home, false, 0.08)}
+                            moneylineAway={game.runline_odds_away}
+                            moneylineHome={game.runline_odds_home}
+                            totalOver={game.total_over}
+                            totalUnder={game.total_under}
+                        />
+                    }
                 </div>
             </div>
         ))}
