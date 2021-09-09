@@ -1,25 +1,9 @@
 import React from 'react';
 import MidPointLines from './MidPointLines';
-import { americanToDecimal, decimalToAmerican } from '../functions/convertOdds';
+import { newLine } from '../functions/lineMove';
 
 const Baseball1stHalf = (props) => {
     const firstHalf = props.firstHalf 
-
-    function runline(moneyline, otherMoneyline) {
-        let decimal = americanToDecimal(moneyline)
-        let percentage = 1 / decimal
-        let adjPercent
-
-        if (Number(moneyline) > Number(otherMoneyline)) {
-            adjPercent = percentage + 0.08
-        } else (
-            adjPercent = percentage - 0.08
-        )
-
-        let runline = decimalToAmerican(1 / adjPercent)
-
-        return runline
-    }
 
     return (
         <div>
@@ -42,13 +26,13 @@ const Baseball1stHalf = (props) => {
                     <h5>Starting</h5>
                     {Number(game.runline_odds_away) < Number(game.runline_odds_home) ?  
                         <div>                  
-                            <p>Away: -0.5({runline(game.runline_odds_away, game.runline_odds_home).toFixed(0)})</p>
-                            <p>Home: +0.5({runline(game.runline_odds_home, game.runline_odds_away).toFixed(0)})</p>
+                            <p>Away: -0.5({newLine(game.runline_odds_away, game.runline_odds_home, 0.08).toFixed(0)})</p>
+                            <p>Home: +0.5({newLine(game.runline_odds_home, game.runline_odds_away, 0.08).toFixed(0)})</p>
                         </div>
                     :   
                         <div>                 
-                            <p>Away: +0.5({runline(game.runline_odds_away, game.runline_odds_home).toFixed(0)})</p>
-                            <p>Home: -0.5({runline(game.runline_odds_home, game.runline_odds_away).toFixed(0)})</p>
+                            <p>Away: +0.5({newLine(game.runline_odds_away, game.runline_odds_home, 0.08).toFixed(0)})</p>
+                            <p>Home: -0.5({newLine(game.runline_odds_home, game.runline_odds_away, 0.08).toFixed(0)})</p>
                         </div>
                     } 
                     <br/>
@@ -60,8 +44,8 @@ const Baseball1stHalf = (props) => {
                 </div>
                 <div className='midpoints'>
                     <MidPointLines 
-                        spreadAway={runline(game.runline_odds_away, game.runline_odds_home)}
-                        spreadHome={runline(game.runline_odds_home, game.runline_odds_away)}
+                        spreadAway={newLine(game.runline_odds_away, game.runline_odds_home, 0.08)}
+                        spreadHome={newLine(game.runline_odds_home, game.runline_odds_away, 0.08)}
                         moneylineAway={game.runline_odds_away}
                         moneylineHome={game.runline_odds_home}
                         totalOver={game.total_over}
