@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Edge from './Edge';
 import GameCards from './gameCards';
 import GameCards1stHalf from './gameCards1stHalf';
+import LineMoveCalc from './LineMoveCalc';
 
 const NcaaFB = (props) => {
     const [gamePeriod, setGamePeriod] = useState('fullGame');
@@ -53,6 +54,7 @@ const NcaaFB = (props) => {
                     />
                 }
                 <Edge/>
+                <LineMoveCalc/>
             </div>
         </div>
     )
