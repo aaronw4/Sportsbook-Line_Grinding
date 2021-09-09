@@ -58,7 +58,7 @@ const Edge = () => {
     }    
  
     return(
-        <div className='form'>
+        <div className='edgeForm'>
             <form onSubmit={handleSubmitFav}>
                 <input
                     type='number'
@@ -78,7 +78,7 @@ const Edge = () => {
                 <button>Favorite Edge</button>
             </form>
             <p className='edge'>Estimated Edge: {edgeFav.toFixed(1)}%</p>
-            <p className='edge'>Bet Factor: x{betFactorFav.toFixed(1)}</p>
+            <p className='edge bottomEdge'>Bet Factor: x{betFactorFav.toFixed(1)}</p>
             <form onSubmit={handleSubmitDog}>
                 <input
                     type='number'
