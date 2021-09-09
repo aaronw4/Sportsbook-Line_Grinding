@@ -75,7 +75,7 @@ const LineMoveCalc = () => {
                         onChange={handleOldOddsHome}
                     />
                 </div>
-                <div>
+                <div className='topNewSpread'>
                     <input
                         type='number'
                         step='1'
@@ -83,6 +83,7 @@ const LineMoveCalc = () => {
                         value={newSpreadAway}
                         placeholder='New Spread Away'
                         onChange={handleNewSpreadAway}
+                        className='newSpread'
                     />
                     <input
                         type='number'
@@ -109,6 +110,7 @@ const LineMoveCalc = () => {
                         value={newSpreadHome}
                         placeholder='New Spread Home'
                         onChange={handleNewSpreadHome}
+                        className='newSpread'
                     />
                     <input
                         type='number'
@@ -128,11 +130,11 @@ const LineMoveCalc = () => {
                     />
                 </div>
                 <br/>
-                <button>New Line</button>
+                <button>Calculate</button>
             </form>
             <div>
-                <p>Away: {newSpreadAway}({(newOddsAway.toFixed(0))})</p>
-                <p>Home: {newSpreadHome}({(newOddsHome.toFixed(0))})</p>
+                <p>Away: {newSpreadAway}({(newOddsAway.toFixed(1))})</p>
+                <p>Home: {newSpreadHome}({(newOddsHome.toFixed(1))})</p>
             </div>
         </div>
     )
