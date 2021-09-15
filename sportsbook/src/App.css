@@ -38,6 +38,7 @@ a:hover {
 
 .lines {
   display: flex;
+  margin-bottom: 100px;
   margin-left: 10px; 
   padding-top: 130px
 }
