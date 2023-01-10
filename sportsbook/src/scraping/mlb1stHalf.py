@@ -6,7 +6,7 @@ def scraping():
     ADDRESS = 'https://classic.sportsbookreview.com/betting-odds/mlb-baseball/'
     RUN_EXTENSION = 'pointspread/1st-half/'
     TOTALS_EXTENSION = 'totals/1st-half/'
-    DATE_EXTENSION = '?date=20210905'
+    DATE_EXTENSION = '?date=20210917'
     USER_SETTINGS = "bbuserid=10017271; bbpassword=7274d03eb3521d19e02cd7871f6b345c; bb_userid=10017271; bb_password=7274d03eb3521d19e02cd7871f6b345c; sbrSession=aaronw4"
 
     headers = {
